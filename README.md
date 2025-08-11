@@ -1,4 +1,2 @@
-# 2321050132
-
-# This is my respository for education.
+# This is my respository for education purpose !
 
