@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aug22_B3</title>
+</head>
+
+<body>
+    <h1>FORM</h1>
+    <form>
+        <div>
+            <p><b>Họ và tên:</b></p> <input type="text" placeholder="Nhập họ tên" name="name" />
+        </div>
+
+        <div>
+            <p><b>Mã sinh viên:</b></p> <input type="number" name="studentID" value="2321050132" readonly />
+        </div>
+
+        <div>
+            <p><b>Năm sinh:</b></p> <input type="date" name="dob" />
+        </div>
+
+        <div>
+            <p><b>Giới thiệu về bản thân:</b></p>
+            <textarea name="aboutme"></textarea>
+        </div>
+
+        <div>
+            <p><b>Email:</b></p> <input type="email" name="mail" placeholder="Nhập mail" />
+        </div>
+
+        <div>
+            <p><b>Số điện thoại:</b></p> <input type="tel" name="telephone" pattern="(([0]{1})([9,3,4,8]{1})([0-9]{8}))"
+                required />
+        </div>
+
+        <div>
+            <p><b>Giới tính:</b></p>
+            Nam <input type="radio" name="gender" value="Nam" /> <br>
+            Nữ <input type="radio" name="gender" value="Nữ" /> <br>
+        </div>
+        <br>
+        <div>
+            <b> Sở thích: </b> <br>
+            Game <input type="checkbox" name="hobby" value="game" /> <br>
+            Music <input type="checkbox" name="hobby" value="music" /> <br>
+            Sport <input type="checkbox" name="hobby" value="sport" /> <br>
+            <br>
+        </div>
+
+        <br />
+        <div>
+            <p><b>Các trình duyệt được yêu thích:</b></p>
+            <select name="browsers" id="">
+                <option value="IE">Internet Explorer</option>
+                <option value="Google">Google Chrome</option>
+                <option value="Firefox">Firefox</option>
+                <option value="Opera">Opera</option>
+            </select>
+        </div>
+        <br>
+
+        <div>
+            <p><b>Nhập tuổi:</b></p>
+            <input type="number" name="age" step="1">
+            <br /> <br />
+            0<input type="range" value="50" />100
+        </div>
+        <br>
+
+        <div>
+            <input type="submit" name="submit" />
+        </div>
+    </form>
+</body>
+
+</html>
