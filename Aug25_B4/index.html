@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aug25_B4</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <style>
+        h1 {
+            color: red;
+            background-color: cyan;
+            text-align: right;
+        }
+
+        #h1p {
+            color: blue;
+            background-color: orange;
+        }
+
+        .box1 {
+            background-color: aqua;
+            /* 1 giá trị cách xung quanh bằng giá trị đó */
+            /* 2 giá trị: giá trị đầu (trên, dưới), giá trị tiếp theo (trái, phải) */
+            /* 4 giá trị: lần lượt trên - phải - dưới - trái */
+            margin: 20px 50px 10px 100px;
+        }
+
+        .box2 {
+            background-color: yellow;
+            /* căn KHỐI ra giữa màn hình */
+            margin: auto;
+            width: 50%;
+        }
+
+        .box3 {
+            background-color: blueviolet;
+            padding: 20px;
+            margin: 50px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <hr>
+    <div style="background-color:red">Lẩu</div>
+    <div style="background-color:orange">Gà</div>
+    <div style="background-color:yellow">Bình</div>
+    <div style="background-color:green">Thuận</div>
+    <div style="background-color:blue">Ngậy</div>
+    <div style="background-color:purple">Tuyệt đối</div>
+    <hr>
+    <h1 style="color: red; text-align: center; background-color: greenyellow;">CSS nội tuyến - Inline Style</h1>
+    <p style="font-size:xx-large; background-color: pink; text-align: center;">Black Pink</p>
+    <h1>CSS Internal </h1>
+    <h1 id="h1p"> H1 ID = 1</h1>
+    <hr>
+    <div class="box1">Box</div>
+    <div class="box2">Box</div>
+    <div class="box3">Box</div>
+</body>
+
+</html>
