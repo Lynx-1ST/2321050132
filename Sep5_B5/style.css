@@ -1,0 +1,51 @@
+body {
+  margin: 0px;
+}
+.img {
+  display: block;
+  text-align: center;
+}
+ul {
+  display: flex;
+  list-style: none;
+  justify-content: center;
+}
+nav {
+  background-color: #0c4ca3;
+  margin: 10px;
+}
+.nav-link {
+  color: white;
+  text-decoration: none;
+  font-family: Roboto, Arial, Tahoma;
+}
+li {
+  padding: 15px;
+}
+.border {
+  border-right: 1px solid #f1f1f2;
+}
+.banner-adv {
+  display: flex;
+  justify-content: center;
+}
+.adv {
+  display: flex;
+  justify-content: space-between;
+}
+header {
+  border-bottom: 12px solid gray;
+  border-radius: 2px;
+}
+p {
+  font-size: 20px;
+  font-weight: bold;
+  color: #0c4ca3;
+}
+.anh-tintuc {
+  display: flex;
+  justify-content: center;
+}
+.mota {
+  display: flex;
+}
