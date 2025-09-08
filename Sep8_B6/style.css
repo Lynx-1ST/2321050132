@@ -1,0 +1,113 @@
+.body {
+  margin: 0;
+}
+.wrapper {
+  background-color: #000;
+  height: 1000px;
+  width: 100%;
+  margin: 0;
+}
+.title {
+  margin-left: 10px;
+}
+.logo {
+  background-color: red;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.home {
+  background-color: red;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.thongbao {
+  background-color: red;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.activities {
+  background-color: red;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.account {
+  background-color: red;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.head {
+  display: flex;
+  gap: 50px;
+}
+.search_box {
+  padding: 20px;
+  height: 20px;
+}
+
+.vitri_phai {
+  margin-left: 1100px;
+}
+
+.wrapper_main {
+  display: flex;
+  gap: 15px;
+}
+
+.main_trai {
+  background-color: #b3b3b3;
+  width: 20%;
+  height: 1000px;
+  border-radius: 10px;
+}
+
+.main_phai {
+  background-color: #b3b3b3;
+  width: 60%;
+  height: 1000px;
+  border-radius: 10px;
+}
+.main_header {
+  display: flex;
+}
+.btn {
+  background-color: aquamarine;
+  padding: 20px;
+  margin-left: 30px;
+  border-radius: 30px;
+}
+.track {
+  padding: 25px;
+  background-color: antiquewhite;
+  border-radius: 15px;
+  margin: 20px;
+}
+.song {
+  padding: 15px;
+  background-color: aquamarine;
+  border-radius: 15px;
+  margin-left: 20px;
+  display: block;
+}
+.song_list {
+  display: flex;
+}
+.song {
+  padding: 20px;
+  width: 240px;
+  margin-bottom: 20px;
+}
+.main_phai {
+  height: 1000px;
+  width: 20%;
+  background-color: #b3b3b3;
+}
