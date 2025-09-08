@@ -1,5 +1,6 @@
 body {
   margin: 0px;
+  font-family: "Roboto", Arial, Tahoma, Veranda;
 }
 nav ul {
   display: flex;
@@ -8,7 +9,7 @@ nav ul {
   gap: 20px;
 }
 .tieude {
-  margin-left: 20px;
+  margin-left: 70px;
   border-bottom: 1px solid #ccc;
   margin-bottom: 15px;
   font-weight: bold;
@@ -23,11 +24,11 @@ nav {
 .nav-link {
   color: white;
   text-decoration: none;
-  font-family: Roboto, Arial, Tahoma;
 }
 
 li {
   padding: 15px;
+  font-size: 20px;
 }
 
 .border {
@@ -49,7 +50,8 @@ header {
 .tintuc {
   display: flex;
   gap: 20px;
-  justify-content: space-around;
+  justify-content: center;
+  margin: 80px;
 }
 .tintuc-phan {
   border: 1px solid #b3b3b3;
@@ -57,13 +59,15 @@ header {
   padding: 10px;
 }
 .tintuc-phan img {
-  width: 100%;
   height: auto;
-  border-radius: 2px;
+  border-radius: 5px;
+  display: block;
 }
-.thongtin {
-  padding: 10px;
+.tb {
+  background-color: #b3b3b3;
+  padding: 20px;
 }
+
 .thongbao {
   display: flex;
   padding: 15px;
@@ -74,11 +78,7 @@ footer {
   background-color: #001a3f;
   color: white;
   text-align: start;
-  padding: 20px;
-  font-family: Roboto, Arial, Tahoma;
-  display: flex;
-  justify-content: center;
-  gap: 30px;
+  padding: 50px;
 }
 a {
   text-decoration: none;
@@ -93,6 +93,53 @@ a {
   gap: 100px;
   align-items: center;
 }
+
+.fb {
+  display: flex;
+  background-color: red;
+  border-radius: 50%;
+  width: 75px;
+  height: 75px;
+  gap: 15px;
+  display: inline-block;
+}
+
 .banquyen {
+  text-align: right;
+}
+.top {
+  display: flex;
+  justify-content: space-around;
+}
+.top li {
+  list-style: none;
+}
+
+.footer {
+  justify-content: center;
+  gap: 30px;
+  text-align: start;
+  padding: 20px;
+}
+.trian {
+  display: flex;
+  justify-content: center;
+  padding: 50px;
+}
+.content {
+  background-color: black;
+  color: white;
+  display: flex;
+}
+.youtube {
   display: block;
+}
+.title {
+  display: block;
+  border: 1px solid white;
+  padding: 28px;
+}
+.t {
+  width: 70%;
+  height: auto;
 }
