@@ -2,29 +2,35 @@
 <html lang="vi">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
-<div class="wrapper">
-
-    <body>
+<body>
+    <div class="wrapper">
         <header>
             <div class="head">
                 <div class="logo">
+                    <img src="./assets/spotify.png" alt="">
                 </div>
-                <div class="home"></div>
+                <div class="home">
+                    <i class="fa fa-home" aria-hidden="true"></i>
+                </div>
                 <div class="search_box">
-                    <input type="text" placeholder="Tìm kiếm">
+                    <input type="text" placeholder="Bạn muốn phát nội dung gì ?" />
+                </div>
+                <div class="header_button">
+                    <button class="btn"><span>Premium</span></button>
+                    <button class="btn"><span>Cài đặt ứng dụng</span></button>
                 </div>
                 <div class="vitri_phai">
-                    <div class="thongbao">
-                    </div>
-                    <div class="activities">
-                    </div>
+                    <div class="thongbao"></div>
+                    <div class="activities"></div>
                     <div class="account">
+                        <img src="./assets/cat.jpg">
                     </div>
                 </div>
             </div>
@@ -32,112 +38,263 @@
 
         <main>
             <div class="wrapper_main">
+                <!-- Cột trái -->
                 <div class="main_trai">
                     <div class="title">
                         <h2>Thư viện</h2>
-                        <div>
-                            <button class="btn">
-                                <span> Playlist </span>
-                            </button>
-                            <button class="btn">
-                                <span> Nghệ sĩ </span>
-                            </button>
-                            <button class="btn">
-                                <span> Album </span>
-                            </button>
+                        <div class="btn_group">
+                            <button class="btn"><span>Playlist</span></button>
+                            <button class="btn"><span>Nghệ sĩ</span></button>
+                            <button class="btn"><span>Album</span></button>
                         </div>
                     </div>
-                    <hr>
-                    <div class="track_list">
-                        <div class="track">
-                            1
-                        </div>
-                        <div class="track">
-                            2
-                        </div>
-                        <div class="track">
-                            3
-                        </div>
-                        <div class="track">
-                            4
-                        </div>
-                        <div class="track">
-                            5
-                        </div>
-                        <div class="track">
-                            6
-                        </div>
-                        <div class="track">
-                            7
-                        </div>
-                        <div class="track">
-                            8
-                        </div>
-                        <div class="track">
-                            9
-                        </div>
-                        <div class="track">
-                            10
-                        </div>
-                    </div>
-                </div>
-                <div class="main_giua">
                     <br>
-                    <div>
-                        <button class="btn">
-                            <span> Tất cả </span>
-                        </button>
-                        <button class="btn">
-                            <span> Nhạc </span>
-                        </button>
-                        <button class="btn">
-                            <span> Podcast </span>
-                        </button>
+                    <div class="track_list">
+                        <div class="song track">
+                            <img src="https://i.scdn.co/image/ab67616d0000b273f8d4d43c4ebce8d4f34f63d9">
+                            <p>1</p>
+                        </div>
+                        <div class="song track">
+                            <img src="https://i.scdn.co/image/ab67616d0000b273f8d4d43c4ebce8d4f34f63d9">
+                            <p>2</p>
+                        </div>
+                        <div class="song track">
+                            <img src="https://i.scdn.co/image/ab67616d0000b273f8d4d43c4ebce8d4f34f63d9">
+                            <p>3</p>
+                        </div>
+                        <div class="song track">
+                            <img src="https://i.scdn.co/image/ab67616d0000b273f8d4d43c4ebce8d4f34f63d9">
+                            <p>4</p>
+                        </div>
+                        <div class="song track">
+                            <img src="https://i.scdn.co/image/ab67616d0000b273f8d4d43c4ebce8d4f34f63d9">
+                            <p>5</p>
+                        </div>
+                        <div class="song track">
+                            <img src="https://i.scdn.co/image/ab67616d0000b273f8d4d43c4ebce8d4f34f63d9">
+                            <p>6</p>
+                        </div>
+                        <div class="song track">
+                            <img src="https://i.scdn.co/image/ab67616d0000b273f8d4d43c4ebce8d4f34f63d9">
+                            <p>7</p>
+                        </div>
+                        <div class="song track">
+                            <img src="https://i.scdn.co/image/ab67616d0000b273f8d4d43c4ebce8d4f34f63d9">
+                            <p>8</p>
+                        </div>
+                        <div class="song track">
+                            <img src="https://i.scdn.co/image/ab67616d0000b273f8d4d43c4ebce8d4f34f63d9">
+                            <p>9</p>
+                        </div>
+                        <div class="song track">
+                            <img src="https://i.scdn.co/image/ab67616d0000b273f8d4d43c4ebce8d4f34f63d9">
+                            <p>10</p>
+                        </div>
+                        <div class="song track">
+                            <img src="https://i.scdn.co/image/ab67616d0000b273f8d4d43c4ebce8d4f34f63d9">
+                            <p>11</p>
+                        </div>
                     </div>
-                    <hr>
+                </div>
+
+                <!-- Cột giữa -->
+                <div class="main_giua">
+                    <div class="btn_group">
+                        <button class="btn"><span>Tất cả</span></button>
+                        <button class="btn"><span>Nhạc</span></button>
+                        <button class="btn"><span>Podcast</span></button>
+                    </div>
+                    <br>
                     <div class="song_list">
-                        <div class="list_row">
-                            <div class="song">
-                                1
+                        <div class="song">
+                            <img src="https://i.scdn.co/image/ab67616d0000b273f8d4d43c4ebce8d4f34f63d9" alt="">
+                            <span>Let Me Go (55 Radar)</span>
+                        </div>
+                        <div class="song">
+                            <img src="https://i.scdn.co/image/ab67616d0000b273f8d4d43c4ebce8d4f34f63d9" alt="">
+                            <span>ANDROMEDA</span>
+                        </div>
+                        <div class="song">
+                            <img src="https://i.scdn.co/image/ab67616d0000b273f8d4d43c4ebce8d4f34f63d9" alt="">
+                            <span>Bài hát đã thích</span>
+                        </div>
+                        <div class="song">
+                            <img src="https://i.scdn.co/image/ab67616d0000b273f8d4d43c4ebce8d4f34f63d9" alt="">
+                            <span>Bài hát đã thích</span>
+                        </div>
+                        <div class="song">
+                            <img src="https://i.scdn.co/image/ab67616d0000b273f8d4d43c4ebce8d4f34f63d9" alt="">
+                            <span>Bài hát đã thích</span>
+                        </div>
+                        <div class="song">
+                            <img src="https://i.scdn.co/image/ab67616d0000b273f8d4d43c4ebce8d4f34f63d9" alt="">
+                            <span>Chillies</span>
+                        </div>
+                        <div class="song">
+                            <img src="https://i.scdn.co/image/ab67616d0000b273f8d4d43c4ebce8d4f34f63d9" alt="">
+                            <span>PTSD</span>
+                        </div>
+                        <div class="song">
+                            <img src="https://i.scdn.co/image/ab67616d0000b273f8d4d43c4ebce8d4f34f63d9" alt="">
+                            <span>Running For Your Life</span>
+                        </div>
+                    </div>
+                    <br>
+
+                    <div class="wrapper_down">
+                        <div class="down_title">
+                            <p>Made for</p>
+                            <h2>Lynx</h2>
+                        </div>
+                        <div class="down_song">
+                            <div class="song_track">
+                                <img src="https://i.scdn.co/image/ab67616d0000b273f8d4d43c4ebce8d4f34f63d9" alt="">
+                                <h3>Title</h3>
+                                <p>Description</p>
                             </div>
-                            <div class="song">
-                                2
+                            <div class="song_track">
+                                <img src="https://i.scdn.co/image/ab67616d0000b273f8d4d43c4ebce8d4f34f63d9" alt="">
+                                <h3>Title</h3>
+                                <p>Description</p>
+                            </div>
+                            <div class="song_track">
+                                <img src="https://i.scdn.co/image/ab67616d0000b273f8d4d43c4ebce8d4f34f63d9" alt="">
+                                <h3>Title</h3>
+                                <p>Description</p>
+                            </div>
+                            <div class="song_track">
+                                <img src="https://i.scdn.co/image/ab67616d0000b273f8d4d43c4ebce8d4f34f63d9" alt="">
+                                <h3>Title</h3>
+                                <p>Description</p>
+                            </div>
+                            <div class="song_track">
+                                <img src="https://i.scdn.co/image/ab67616d0000b273f8d4d43c4ebce8d4f34f63d9" alt="">
+                                <h3>Title</h3>
+                                <p>Description</p>
                             </div>
                         </div>
-                        <div class="list_row">
-                            <span class="song">
-                                3
-                            </span>
-                            <div class="song">
-                                4
+                    </div>
+
+                    <div class="wrapper_down">
+                        <div class="down_title">
+                            <br>
+                            <h2>Jump Back In</h2>
+                        </div>
+                        <div class="down_song">
+                            <div class="song_track">
+                                <img src="https://i.scdn.co/image/ab67616d0000b273f8d4d43c4ebce8d4f34f63d9" alt="">
+                                <h3>Title</h3>
+                                <p>Description</p>
+                            </div>
+                            <div class="song_track">
+                                <img src="https://i.scdn.co/image/ab67616d0000b273f8d4d43c4ebce8d4f34f63d9" alt="">
+                                <h3>Title</h3>
+                                <p>Description</p>
+                            </div>
+                            <div class="song_track">
+                                <img src="https://i.scdn.co/image/ab67616d0000b273f8d4d43c4ebce8d4f34f63d9" alt="">
+                                <h3>Title</h3>
+                                <p>Description</p>
+                            </div>
+                            <div class="song_track">
+                                <img src="https://i.scdn.co/image/ab67616d0000b273f8d4d43c4ebce8d4f34f63d9" alt="">
+                                <h3>Title</h3>
+                                <p>Description</p>
+                            </div>
+                            <div class="song_track">
+                                <img src="https://i.scdn.co/image/ab67616d0000b273f8d4d43c4ebce8d4f34f63d9" alt="">
+                                <h3>Title</h3>
+                                <p>Description</p>
                             </div>
                         </div>
-                        <div class="list_row">
-                            <span class="song">
-                                5
-                            </span>
-                            <div class="song">
-                                6
-                            </div>
+                    </div>
+
+                    <div class="wrapper_down">
+                        <div class="down_title">
+                            <br>
+                            <h2>Jump Back In</h2>
                         </div>
-                        <div class="list_row">
-                            <span class="song">
-                                7
-                            </span>
-                            <div class="song">
-                                8
+                        <div class="down_song">
+                            <div class="song_track">
+                                <img src="https://i.scdn.co/image/ab67616d0000b273f8d4d43c4ebce8d4f34f63d9" alt="">
+                                <h3>Title</h3>
+                                <p>Description</p>
+                            </div>
+                            <div class="song_track">
+                                <img src="https://i.scdn.co/image/ab67616d0000b273f8d4d43c4ebce8d4f34f63d9" alt="">
+                                <h3>Title</h3>
+                                <p>Description</p>
+                            </div>
+                            <div class="song_track">
+                                <img src="https://i.scdn.co/image/ab67616d0000b273f8d4d43c4ebce8d4f34f63d9" alt="">
+                                <h3>Title</h3>
+                                <p>Description</p>
+                            </div>
+                            <div class="song_track">
+                                <img src="https://i.scdn.co/image/ab67616d0000b273f8d4d43c4ebce8d4f34f63d9" alt="">
+                                <h3>Title</h3>
+                                <p>Description</p>
+                            </div>
+                            <div class="song_track">
+                                <img src="https://i.scdn.co/image/ab67616d0000b273f8d4d43c4ebce8d4f34f63d9" alt="">
+                                <h3>Title</h3>
+                                <p>Description</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="main_phai">
 
+                <!-- Cột phải -->
+                <div class="main_phai">
+                    <div>
+                        <p style="font-weight: bold; font-size: 20px; color: white;"> Liked Song</p>
+                    </div>
+                    <div class="preview">
+                        <img src="https://i.scdn.co/image/ab67616d0000b273f8d4d43c4ebce8d4f34f63d9">
+                    </div>
+                    <div>
+                        <button class="btn"><span>Switch to Video</span></button>
+                    </div>
+                    <div class="preview_title">
+                        <h2>Let Me Go (55 Radar)</h2>
+                        <p>Kim Long</p>
+                        <br>
+                    </div>
+                    <div class="preview_title">
+                        <p style="font-weight: bold; font-size: 20px;">About the Artist</p>
+                    </div>
+                    <div class="preview">
+                        <img src="https://i.scdn.co/image/ab67616d0000b273f8d4d43c4ebce8d4f34f63d9">
+                        <div class="artist_wrapper">
+                            <div class="preview_title">
+                                <h2 style="font-weight: bold; ">Kim Long</h2>
+                                <p>Bla bla blu blu</p>
+                                <p>Bla bla blu blu</p>
+                            </div>
+                            <button class="btn artist_btn"><span>Theo dõi</span></button>
+                        </div>
+                    </div>
                 </div>
             </div>
-</div>
-</main>
-<footer></footer>
+        </main>
+        <footer>
+            <div class="left-footer">
+                <div class="footer_song">
+                    <img src="https://i.scdn.co/image/ab67616d0000b273f8d4d43c4ebce8d4f34f63d9">
+                    <div class="footer-description">
+                        <h3>Title</h3>
+                        <p>Description</p>
+                    </div>
+                </div>
+            </div>
+            <div class="mid-footer">
+                <img width="30" height="30" src="./assets/play-btn.png" alt="play--v1" />
+            </div>
+            <div class="right-footer">
+
+            </div>
+        </footer>
+    </div>
 </body>
-</div>
 
 </html>
