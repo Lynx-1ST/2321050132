@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: #b3b3b3;
+        }
+
+        .wrapper-main {
+            margin: auto;
+        }
+
+        .title,
+        .facebook {
+            text-align: center;
+        }
+
+        .container {
+            background-color: white;
+            width: 50%;
+            margin: auto;
+            border-radius: 20px;
+            padding: 5px;
+            margin-top: 50px;
+
+        }
+
+        .title {
+            margin-bottom: 20px;
+            border-bottom: 1px solid black;
+        }
+
+        .name {
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .name-title {
+            color: #606060;
+            margin-left: 20px;
+        }
+
+        .name input {
+            width: 40%;
+            padding: 12px;
+            border-radius: 10px;
+        }
+
+        .dob {
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .dob input {
+            width: 25%;
+            padding: 12px;
+            border-radius: 10px;
+            margin: auto;
+        }
+
+        .gender {
+            margin-bottom: 50px;
+        }
+
+        .gender .input {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .input-border {
+            border: 1px solid black;
+            padding: 12px;
+            border-radius: 10px;
+            width: 20%;
+        }
+
+        .input-border input {
+            width: 30%;
+        }
+
+        .login-form {
+            margin-left: 50px;
+            justify-content: center;
+        }
+
+        .login-form input {
+            width: 90%;
+            padding: 12px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            margin: auto;
+        }
+
+        .signup-button .btn {
+            background-color: green;
+            padding: 12px;
+            border-radius: 10px;
+            width: 30%;
+            margin-left: 35%;
+            color: white;
+            font-size: 26px;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .account,
+        .mota {
+            text-align: center;
+            padding: 15px;
+        }
+
+        footer {
+            width: 100%;
+            background-color: white;
+        }
+
+        .wrapper {
+            margin-top: 100px;
+            width: 100%;
+        }
+
+        .top {
+            padding: 20px;
+            margin: 30px 0 15px 0;
+            display: flex;
+            width: 80%;
+            justify-self: center;
+            border-bottom: 1px solid gray;
+            justify-content: space-around;
+        }
+
+        .bottom {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .dayxahoi {
+            padding: 15px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper-main">
+        <div class="facebook">
+            <h1 style="color: blue;font-size: 64px;"> Facebook </h1>
+        </div>
+        <div class="container">
+            <div class="title">
+                <h2>Create a new account</h2>
+                <p>It's quick and easy</p>
+            </div>
+            <div class="input-form">
+                <span class="name">
+                    <input placeholder="First Name">
+                    <input placeholder="Surname">
+                </span>
+                <div class="name-title">
+                    <p>Date of birth</p>
+                </div>
+                <div class="dob">
+                    <input type="date">
+                    <input type="date">
+                    <input type="date">
+                </div>
+                <div class="name-title">
+                    <p>Gender</p>
+                </div>
+                <div class="gender">
+                    <div class="input">
+                        <div class="input-border">
+                            Nam <input type="radio" name="gender" value="Nam" />
+                        </div>
+                        <div class="input-border">
+                            Nữ <input type="radio" name="gender" value="Nữ" />
+                        </div>
+                        <div class="input-border">
+                            Custom <input type="radio" name="gender" value="Nữ" />
+                        </div>
+                    </div>
+                </div>
+                <div class="login-form">
+                    <div>
+                        <input placeholder="Number or email">
+                    </div>
+                    <br>
+                    <div>
+                        <input type="password" placeholder="Password">
+                    </div>
+                </div>
+            </div>
+            <div class="mota">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, reiciendis.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, reiciendis.</p>
+            </div>
+            <div class="signup-button">
+                <button class="btn">Sign Up</button>
+            </div>
+            <div class="account">
+                <h2><a href="#">Already have an account?</a></h2>
+            </div>
+        </div>
+
+        <footer>
+            <div class="wrapper">
+                <div class="top">
+                    <div class="language">
+                        <p>English(UK)</p>
+                    </div>
+                    <div class="language">
+                        <p>English(UK)</p>
+                    </div>
+                    <div class="language">
+                        <p>English(UK)</p>
+                    </div>
+                    <div class="language">
+                        <p>English(UK)</p>
+                    </div>
+                    <div class="language">
+                        <p>English(UK)</p>
+                    </div>
+                    <div class="language">
+                        <p>English(UK)</p>
+                    </div>
+                    <div class="language">
+                        <p>English(UK)</p>
+                    </div>
+                </div>
+                <div class="bottom">
+                    <div class="bottom1">
+                        <p>Sign up</p>
+                        <p>Sign up</p>
+                        <p>Sign up</p>
+                    </div>
+                    <div class="bottom1">
+                        <p>Sign up</p>
+                        <p>Sign up</p>
+                        <p>Sign up</p>
+                    </div>
+                    <div class="bottom1">
+                        <p>Sign up</p>
+                        <p>Sign up</p>
+                        <p>Sign up</p>
+                    </div>
+                    <div class="bottom1">
+                        <p>Sign up</p>
+                        <p>Sign up</p>
+                        <p>Sign up</p>
+                    </div>
+                    <div class="bottom1">
+                        <p>Sign up</p>
+                        <p>Sign up</p>
+                        <p>Sign up</p>
+                    </div>
+                </div>
+                <div class="dayxahoi">
+                    <p>2025</p>
+                </div>
+            </div>
+        </footer>
+</body>
+
+</html>

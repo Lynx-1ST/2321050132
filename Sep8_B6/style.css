@@ -38,7 +38,7 @@ header {
 }
 
 .search_box {
-  width: 500px;
+  width: 100%;
 }
 .search_box input {
   width: 100%;
