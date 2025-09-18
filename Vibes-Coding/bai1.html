@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Metropolis;
+        }
+
+        header {
+            width: 100%;
+        }
+
+        .header-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 25px;
+        }
+
+        .header-wrapper button {
+            text-decoration: none;
+            color: black;
+            background-color: #d6d6d6;
+            padding: 12px;
+            border-radius: 25px;
+            width: 6%;
+            border: none;
+        }
+
+        .header-wrapper a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+        }
+
+        .main-wrapper {
+            display: flex;
+            padding: 0 25px;
+        }
+
+        .list {
+            width: 20%;
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        .list ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .list li {
+            margin-bottom: 30px;
+        }
+
+        .right {
+            gap: 20px;
+            width: 80%;
+        }
+
+        .title {
+            display: flex;
+            width: 100%;
+            gap: 20px;
+        }
+
+        .small-title {
+            text-align: end;
+            display: flex;
+            margin-left: 33%;
+            gap: 30px;
+        }
+
+        .img-content {
+            width: 100%;
+            display: flex;
+            gap: 7%;
+            margin: 40px 20px 0 0;
+        }
+
+        .img img {
+            border-radius: 10px;
+            width: 120%;
+        }
+
+        span {
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            gap: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-wrapper">
+            <h1>OpenAI</h1>
+            <button><a href="#">Log In</a></button>
+        </div>
+    </header>
+
+    <main>
+        <div class="main-wrapper">
+            <div class="list">
+                <ul>
+                    <li>Research</li>
+                    <li>Safety</li>
+                    <li>For Business</li>
+                    <li>For Developers</li>
+                    <li>ChatGPT</li>
+                    <li>Sora</li>
+                    <li>Stories</li>
+                    <li>Company</li>
+                    <li>News</li>
+                </ul>
+            </div>
+            <div class="right">
+                <div>
+                    <h1>News</h1>
+                </div>
+                <div class="title">
+                    <p>All</p>
+                    <p>Company</p>
+                    <p>Research</p>
+                    <p>Product</p>
+                    <p>Safety</p>
+                    <p>Security</p>
+                    <p>Global Affairs</p>
+                    <div class="small-title">
+                        <p> Filter </p>
+                        <p> Sort</p>
+                    </div>
+                </div>
+
+                <div class="img-content">
+                    <div class="img">
+                        <img src="./image.png" alt="">
+                        <p>Building towards age Prediction</p>
+                        <span>
+                            <font style="font-weight: bold;">Safety</font>
+                            Sep 16, 2025
+                        </span>
+                    </div>
+                    <div class="img">
+                        <img src="./image.png" alt="">
+                        <p>Building towards age Prediction</p>
+                        <span>
+                            <font style="font-weight: bold;">Safety</font>
+                            Sep 16, 2025
+                        </span>
+                    </div>
+                    <div class="img">
+                        <img src="./image.png" alt="">
+                        <p>Building towards age Prediction</p>
+                        <span>
+                            <font style="font-weight: bold;">Safety</font>
+                            Sep 16, 2025
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

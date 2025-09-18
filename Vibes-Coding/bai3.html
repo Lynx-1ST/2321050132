@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OpenAI – News list</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Metropolis, system-ui, -apple-system, Arial, sans-serif;
+            color: black;
+        }
+
+        header {
+            width: 100%;
+        }
+
+        .header-wrapper {
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .header-wrapper img {
+            width: 40px;
+            height: auto;
+        }
+
+        .header-wrapper h1 {
+            font-size: 22px;
+        }
+
+        .header-wrapper a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+        }
+
+        .header-wrapper button {
+            background: #e5e7eb;
+            border: 0;
+            padding: 10px 18px;
+            border-radius: 25px;
+        }
+
+        .main-wrapper {
+            margin: 40px auto;
+            display: flex;
+            padding: 0 25px;
+        }
+
+        .list {
+            width: 20%;
+        }
+
+        .list ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .list li {
+            margin-bottom: 30px;
+        }
+
+        .content {
+            width: 70%;
+        }
+
+        .content-top {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .img-content {
+            display: flex;
+            width: 100%;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .img-content img {
+            width: 150px;
+            height: 150px;
+            border-radius: 5px;
+            margin-top: 20px
+        }
+
+        .title h4 {
+            font-size: 14px;
+        }
+
+        .subtitle {
+            font-size: 12px;
+            color: black;
+        }
+
+        .p1 {
+            color: gray;
+            margin-left: 10px;
+        }
+
+        .content-bottom {
+            display: flex;
+            width: 100%;
+            gap: 30px;
+        }
+
+        .img-bottom {
+            width: 100%;
+        }
+
+        .img-bottom img {
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        .title-bottom {
+            margin-top: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-wrapper">
+            <img src="logo.png">
+            <button><a href="#">Log in</a></button>
+        </div>
+    </header>
+    <main>
+        <div class="main-wrapper">
+            <div class="list">
+                <ul>
+                    <li>Research</li>
+                    <li>Safety</li>
+                    <li>For Business</li>
+                    <li>For Developers</li>
+                    <li>ChatGPT</li>
+                    <li>Sora</li>
+                    <li>Stories</li>
+                    <li>Company</li>
+                    <li>News</li>
+                </ul>
+            </div>
+            <div class="content">
+                <div class="content-top">
+                    <!-- Item 1 -->
+                    <div class="img-content">
+                        <img src="image.png" alt="">
+                        <div class="cc">
+                            <div class="title">
+                                <h4>Introducing Stargate UK</h4>
+                            </div>
+                            <div class="subtitle">
+                                <span>Global Affair</span>
+                                <span class="p1">Sep 16, 2025</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Item 2 -->
+                    <div class="img-content">
+                        <img src="image.png" alt="">
+                        <div class="cc">
+                            <div class="title">
+                                <h4>Teen safety, freedom and privacy</h4>
+                            </div>
+                            <div class="subtitle">
+                                <span>Safety</span>
+                                <span class="p1">Sep 16, 2025</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="title-bottom">
+                    <h3>Stories</h3>
+                </div>
+                <div class="content-bottom">
+                    <div class="img-bottom">
+                        <img src="1.png">
+                        <div class="title">
+                            <h4>Coding and design with GPT-5</h4>
+                        </div>
+                        <div class="subtitle">
+                            <span>GPT-5</span>
+                            <span class="p1">Aug 7, 2025</span>
+                            <span class="p1">2 min read</span>
+                        </div>
+                    </div>
+                    <div class="img-bottom">
+                        <img src="2.png">
+                        <div class="title">
+                            <h4>Coding and design with GPT-5</h4>
+                        </div>
+                        <div class="subtitle">
+                            <span>GPT-5</span>
+                            <span class="p1">Aug 7, 2025</span>
+                            <span class="p1">2 min read</span>
+                        </div>
+                    </div>
+                    <div class="img-bottom">
+                        <img src="3.png">
+                        <div class="title">
+                            <h4>Coding and design with GPT-5</h4>
+                        </div>
+                        <div class="subtitle">
+                            <span>GPT-5</span>
+                            <span class="p1">Aug 7, 2025</span>
+                            <span class="p1">2 min read</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </main>
+</body>
+
+</html>

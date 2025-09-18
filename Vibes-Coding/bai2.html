@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Metropolis;
+        }
+
+        header {
+            width: 100%;
+        }
+
+        .header-wrapper button {
+            text-decoration: none;
+            color: black;
+            background-color: #d6d6d6;
+            padding: 12px;
+            border-radius: 25px;
+            width: 6%;
+            border: none;
+        }
+
+        .header-wrapper a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+        }
+
+        .header-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 25px;
+        }
+
+        .main-wrapper {
+            display: flex;
+            gap: 50px;
+        }
+
+        .list {
+            width: 20%;
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        .list ul {
+            list-style: none;
+        }
+
+        .list li {
+            margin-bottom: 30px;
+        }
+
+        .content {
+            display: flex;
+            gap: 30px;
+        }
+
+        .left {
+            align-items: center;
+            width: 40%;
+            margin-top: 15%;
+        }
+
+        .left h1 {
+            font-size: 56px;
+        }
+
+        .title {
+            color: rgb(63, 63, 63);
+        }
+
+        .title p {
+            padding: 5px;
+            line-height: 1.6;
+        }
+
+        .title-button {
+            width: 35%;
+        }
+
+        .title-button button {
+            width: 25%;
+            padding: 10px;
+            border-radius: 15px;
+            border: none;
+            background-color: black;
+            color: white;
+            font-weight: bold;
+        }
+
+        .small-title {
+            margin-left: 30px;
+            font-size: 14px;
+        }
+
+        .right {
+            display: flex;
+            gap: 20px;
+            width: 40%;
+        }
+
+        .left-col,
+        .right-col {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .small img {
+            width: 200px;
+            height: 200px;
+            margin-bottom: 20px;
+
+        }
+
+        .big img {
+            width: 250px;
+            height: 320px;
+            margin-bottom: 20px;
+        }
+
+        .mar {
+            margin-left: 50px;
+        }
+
+        .long img {
+            height: 400px;
+        }
+
+        img {
+            border-radius: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-wrapper">
+            <h1>OpenAI</h1>
+            <button><a href="#">Log In</a></button>
+        </div>
+    </header>
+
+    <main>
+        <div class="main-wrapper">
+            <div class="list">
+                <ul>
+                    <li style="color: rgb(112, 112, 112)">Home</li>
+                    <li>API Platform</li>
+                    <li>API Pricing</li>
+                    <li>Codex</li>
+                    <li>Open Model</li>
+                    <li>Community</li>
+                </ul>
+            </div>
+
+            <div class="content">
+                <div class="left">
+                    <div>
+                        <h1>Codex</h1>
+                    </div>
+                    <div class="title">
+                        <p>One agent for everywhere you code - included in ChatGPT Plus, Pro, Business, Edu and
+                            Enterprise
+                            plans.</p>
+                        <span class="title-button">
+                            <button>Get Started</button>
+                            <span class="small-title">$ npm i -g @openai/codex</span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="right">
+                    <div class="left-col">
+                        <div class="small mar">
+                            <img src="./image.png">
+                        </div>
+                        <div class="big"><img src="./image.png"></div>
+                    </div>
+                    <div class="right-col">
+                        <div class="big long">
+                            <img src="./image.png">
+                        </div>
+                        <div class="small">
+                            <img src="./image.png">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
