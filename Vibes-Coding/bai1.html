@@ -8,7 +8,7 @@
     <style>
         body {
             margin: 0;
-            font-family: Metropolis;
+            font-family: Arial, sans-serif;
         }
 
         header {
@@ -19,13 +19,13 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 25px;
+            padding: 10px 25px;
         }
 
         .header-wrapper button {
             text-decoration: none;
             color: black;
-            background-color: #d6d6d6;
+            background-color: #e8e8e8;
             padding: 12px;
             border-radius: 25px;
             width: 6%;
@@ -45,8 +45,8 @@
 
         .list {
             width: 20%;
-            gap: 40px;
-            margin-top: 30px;
+            margin-top: 100px;
+            font-weight: bold;
         }
 
         .list ul {
@@ -56,25 +56,31 @@
         }
 
         .list li {
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
 
         .right {
-            gap: 20px;
-            width: 80%;
+            width: 75%;
+            margin-bottom: 50px;
         }
 
         .title {
             display: flex;
+            justify-content: space-between;
+        }
+
+        .title1 {
+            display: flex;
             width: 100%;
             gap: 20px;
+            color: gray;
         }
 
         .small-title {
             text-align: end;
             display: flex;
-            margin-left: 33%;
-            gap: 30px;
+            gap: 20px;
+            font-weight: bold;
         }
 
         .img-content {
@@ -86,13 +92,12 @@
 
         .img img {
             border-radius: 10px;
-            width: 120%;
+            width: 115%;
         }
 
         span {
-            font-family: 'Courier New', Courier, monospace;
             display: flex;
-            gap: 30px;
+            gap: 20px;
         }
     </style>
 </head>
@@ -125,13 +130,15 @@
                     <h1>News</h1>
                 </div>
                 <div class="title">
-                    <p>All</p>
-                    <p>Company</p>
-                    <p>Research</p>
-                    <p>Product</p>
-                    <p>Safety</p>
-                    <p>Security</p>
-                    <p>Global Affairs</p>
+                    <div class="title1">
+                        <p>All</p>
+                        <p>Company</p>
+                        <p>Research</p>
+                        <p style="color:black"><b>Product</b></p>
+                        <p>Safety</p>
+                        <p>Security</p>
+                        <p>Global Affairs</p>
+                    </div>
                     <div class="small-title">
                         <p> Filter </p>
                         <p> Sort</p>
@@ -143,24 +150,24 @@
                         <img src="./image.png" alt="">
                         <p>Building towards age Prediction</p>
                         <span>
-                            <font style="font-weight: bold;">Safety</font>
-                            Sep 16, 2025
+                            <b>Safety</b>
+                            <span> Sep 16, 2025</span>
                         </span>
                     </div>
                     <div class="img">
                         <img src="./image.png" alt="">
                         <p>Building towards age Prediction</p>
                         <span>
-                            <font style="font-weight: bold;">Safety</font>
-                            Sep 16, 2025
+                            <b>Safety</b>
+                            <span> Sep 16, 2025</span>
                         </span>
                     </div>
                     <div class="img">
                         <img src="./image.png" alt="">
                         <p>Building towards age Prediction</p>
                         <span>
-                            <font style="font-weight: bold;">Safety</font>
-                            Sep 16, 2025
+                            <b>Safety</b>
+                            <span> Sep 16, 2025</span>
                         </span>
                     </div>
                 </div>

@@ -8,11 +8,18 @@
     <style>
         body {
             margin: 0;
-            font-family: Metropolis;
+            font-family: Arial, sans-serif;
         }
 
         header {
             width: 100%;
+        }
+
+        .header-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 25px;
         }
 
         .header-wrapper button {
@@ -21,7 +28,7 @@
             background-color: #d6d6d6;
             padding: 12px;
             border-radius: 25px;
-            width: 6%;
+            width: 90px;
             border: none;
         }
 
@@ -31,12 +38,7 @@
             font-weight: bold;
         }
 
-        .header-wrapper {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 25px;
-        }
+
 
         .main-wrapper {
             display: flex;
@@ -45,8 +47,9 @@
 
         .list {
             width: 20%;
-            gap: 40px;
-            margin-top: 30px;
+            margin-top: 90px;
+            font-weight: bold;
+            font-size: 18px;
         }
 
         .list ul {
@@ -59,11 +62,10 @@
 
         .content {
             display: flex;
-            gap: 30px;
+            gap: 70px;
         }
 
         .left {
-            align-items: center;
             width: 40%;
             margin-top: 15%;
         }
@@ -77,8 +79,9 @@
         }
 
         .title p {
-            padding: 5px;
-            line-height: 1.6;
+            padding: 0px;
+            line-height: 1.9;
+            margin-bottom: 40px;
         }
 
         .title-button {
@@ -116,7 +119,6 @@
             width: 200px;
             height: 200px;
             margin-bottom: 20px;
-
         }
 
         .big img {
@@ -129,8 +131,12 @@
             margin-left: 50px;
         }
 
+        .square img {
+            height: 250px;
+        }
+
         .long img {
-            height: 400px;
+            height: 350px;
         }
 
         img {
@@ -151,7 +157,7 @@
         <div class="main-wrapper">
             <div class="list">
                 <ul>
-                    <li style="color: rgb(112, 112, 112)">Home</li>
+                    <li style="color: rgb(195, 195, 195); margin-left: 20px;">Home</li>
                     <li>API Platform</li>
                     <li>API Pricing</li>
                     <li>Codex</li>
@@ -162,9 +168,7 @@
 
             <div class="content">
                 <div class="left">
-                    <div>
-                        <h1>Codex</h1>
-                    </div>
+                    <h1>Codex</h1>
                     <div class="title">
                         <p>One agent for everywhere you code - included in ChatGPT Plus, Pro, Business, Edu and
                             Enterprise
@@ -181,7 +185,7 @@
                         <div class="small mar">
                             <img src="./image.png">
                         </div>
-                        <div class="big"><img src="./image.png"></div>
+                        <div class="big square"><img src="./image.png"></div>
                     </div>
                     <div class="right-col">
                         <div class="big long">
