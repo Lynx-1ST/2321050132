@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sep26_B9</title>
+</head>
+
+<body>
+    <script>
+
+        let thanhVienThanThiet = false;
+        let trangThaiThanhToan = false;
+        let donHang = {
+            maDonHang: "SPX020320310VN",
+            khachHang: {
+                hoTen: "Dao Loc",
+                soDienThoai: "0389770636",
+                thanhVienThanThiet: true,
+            },
+            danhSachSanPham: {
+                sanPham1: {
+                    maSP: "123SP",
+                    tenSP: "Matcha",
+                    soLuong: 2,
+                    giaTri: 5000,
+                },
+                sanPham2: {
+                    maSP: "124SP",
+                    tenSP: "Cà phê",
+                    soLuong: 6,
+                    giaTri: 10000,
+                },
+                sanPham3: {
+                    maSP: "125SP",
+                    tenSP: "Trà sữa",
+                    soLuong: 15,
+                    giaTri: 25000,
+                }
+            },
+            trangThaiThanhToan: true,
+            diaChi: "Bac Tu Liem, Ha Noi",
+        };
+
+        let sp1_value = donHang.danhSachSanPham.sanPham1.soLuong * donHang.danhSachSanPham.sanPham1.giaTri;
+        let sp2_value = donHang.danhSachSanPham.sanPham2.soLuong * donHang.danhSachSanPham.sanPham2.giaTri;
+        let sp3_value = donHang.danhSachSanPham.sanPham3.soLuong * donHang.danhSachSanPham.sanPham3.giaTri;
+        let tongGiaTriDonHang = sp1_value + sp2_value + sp3_value;
+        document.writeln("Giá trị đơn hàng: " + tongGiaTriDonHang);
+
+
+        // String
+        let hoTen = "Dao Quang Loc";
+        document.writeln("<br> Độ dài chuỗi kí tự: " + hoTen.length);
+
+        let myString = "HELLO";
+        document.writeln("<br>" + myString[4]);
+
+        document.writeln(myString.slice(1, 4)); // Cắt chuỗi (start,end)
+
+        document.writeln(myString.replace("E", "O")); // Thay thế chuỗi ("Chuỗi cần thay thế", "Chuỗi thay thế")
+
+        document.writeln("<br>UPPERCASE: " + myString.toUpperCase());
+        document.writeln("<br>lowercase: " + myString.toLowerCase());
+
+        document.writeln("<br>" + myString.indexOf("O"));   // Tìm kiếm chuỗi - trả về vị trí
+        document.writeln("<br>" + myString.includes("O")); // Tìm kiếm chuỗi - trả về true,false
+
+        document.writeln("<br>" + myString.split("")); // Chia chuỗi thành xâu kí tự
+
+        document.writeln("<br>" + myString.startsWith("HE")); // Bắt đầu bằng chuỗi() - boolean
+
+        // Number
+        var pi = 3.141976;
+        document.writeln(pi.toFixed(2)) // Định dạng số thập phân
+
+        let random = "2131D";
+        document.writeln(isNaN(10)); // is Not a Number ?
+
+        let now = new Date();               // Khởi tạo ngày,giờ hiện tại
+        let then = new Date('2023-05-24'); // Khởi tạo ngày,giờ tuỳ chỉnh
+        document.writeln("<br>" + now + "<br>" + then);
+        document.writeln("<br>" + now.getFullYear());
+        document.writeln("<br>" + now.getDay() + now.getDate()); // Day - Thứ != Date - Ngày
+
+    </script>
+</body>
+
+</html>
