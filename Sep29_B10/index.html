@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let arr = [1, 2, 3, 4, "a", "b", "c", 2, 3];
+        document.writeln(Array.isArray(arr)); // Thuộc tính
+        document.writeln(arr.length); // Kiểm tra độ dài của mảng
+        document.writeln(arr[2]);
+        // Kiểm tra index của phần tử trong mảng
+        document.writeln("<br>" + arr.indexOf(3));
+        // Kiểm tra index của phần tử xuất hiện cuối cùng
+        document.writeln("<br>" + arr.lastIndexOf(3));
+        // Thay đổi giá trị a[4] = 'a';
+        document.writeln(arr + "<br>")
+
+        let a, b, c, d;
+        a = [1, 2, 3];
+        b = "Javascript";
+        c = [42, "JS"];
+        d = a.concat(b, c);
+        document.writeln(Array.isArray(d + "<br>"));
+        /* d = d.join("/"); */
+        d.push("f");
+        d.pop(); // Xoá phần tử cuối cùng
+        d.shift(); // Xoá phần tử đầu tiên
+        d.unshift(36); // Thêm phần tử vào đầu mảng
+        d.reverse(); // Đảo ngược mảng
+        document.writeln(d + "<br>");
+
+        let s = "1000000000000000000000000003";
+        let soCuoi = parseInt(s[s.length - 1]);
+        if (soCuoi % 2 == 0) {
+            document.writeln("Số chẵn.")
+        } else {
+            document.writeln("Số lẻ. <br>")
+        }
+
+        let now = new Date().getHours();
+        document.writeln(now + " giờ <br>");
+        if (now >= 5 && now <= 10) {
+            document.writeln("Chao buoi sang !");
+        } else if (now > 10 && now <= 13) {
+            document.writeln("Chao buoi trua !");
+        } else if (now > 13 && now <= 17) {
+            document.writeln("Chao buoi chieu !");
+        } else if (now > 17 && now <= 22) {
+            document.writeln("Chao buoi toi ! <br>");
+        } else {
+            document.writeln("Chao buoi dem !");
+        }
+
+        let diemA = 6;
+        let diemB = 6;
+        let diemC = 10;
+        if ((diemA < 0 || diemA > 10) || (diemB < 0 || diemB > 10) || (diemC < 0 || diemC > 10)) {
+            document.writeln("<br> Không hợp lệ !")
+        } else {
+            let diem = diemA * 0.6 + diemB * 0.3 + diemC * 0.1;
+            if (diem >= 8 && diem <= 10) {
+                document.writeln("A");
+            } else if (diem >= 7 && diem < 8) {
+                document.writeln("B");
+            } else if (diem >= 5 && diem < 7) {
+                document.writeln("C");
+            } else if (diem >= 4 && diem < 5) {
+                document.writeln("D");
+            } else {
+                document.writeln("F");
+            }
+            document.writeln(" - " + diem);
+        }
+
+
+    </script>
+</body>
+
+</html>
