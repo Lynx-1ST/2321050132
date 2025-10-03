@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        d = new Date();
+        theDay = d.getDay();
+        switch (theDay) {
+            case 0:
+                document.writeln("Chủ nhật");
+                break;
+            case 1:
+                document.writeln("Thứ hai");
+                break;
+            case 2:
+                document.writeln("Thứ ba");
+                break;
+            case 3:
+                document.writeln("Thứ tư");
+                break;
+            case 4:
+                document.writeln("Thứ năm");
+                break;
+            case 5:
+                document.writeln("Thứ sáu");
+                break;
+            case 6:
+                document.writeln("Thứ bảy");
+                break;
+            default:
+                document.writeln("Không hợp lệ !")
+        }
+
+        document.writeln("<br>");
+        let dem = 0;
+        let danhSach = ["Dương Trần Nhật	Anh ", "Dương Vũ	Anh ", "Trần Vũ Hải	Anh ", "Bùi Ngọc	Bích ", "Phạm Quốc	Bình ", "Nguyễn Văn	Chung ", "Hoàng Mạnh	Cường ", "Ngô Hoàng	Dương ", "Phạm Văn	Đại ", "Nguyễn Đình	Đạt ", "Phạm	Đức ", "Vũ Trung	Đức ", "Phạm Hương	Giang ", "Phạm Quang	Hậu ", "Trần Văn	Hiệp ", "Nguyễn Văn	Hoàng ", "Phạm Quốc	Hoàng ", "Phạm Thị	Huế ", "Trần Công	Hùng ", "Đào Thế	Huy ", "Đỗ Quang	Huy ", "Phạm Quang	Huy ", "Phạm Thành	Khang ", "Bùi Văn	Khiêm ", "Nguyễn Tiến	Khởi ", "Đỗ Trung	Kiên ", "Vương Hà	Linh ", "Đào Quang	Lộc ", "Ngô Gia	Lộc ", "Bùi Văn	Mạnh ", "Nguyễn Văn	Mạnh ", "Phan Văn	Mạnh ", "Trương Công	Minh ", "Đỗ Thành	Nam ", "Lê Duy	Nam ", "Nguyễn Hoàng	Nam ", "Nguyễn Anh	Quân ", "Cao Thị Thu	Quyên ", "Phạm Gia	Tài ", "Nguyễn Thị Thanh	Tâm © ", "Nguyễn Đình	Thái ", "Lưu Tiến	Thành ", "Trần Văn	Thành ", "Nguyễn Thị	Thúy ", "Nguyễn Thị	Thúy ", "Bùi Duy	Tiến ", "Nguyễn Văn	Tiến ", "Đỗ Văn	Trung ", "Phạm Đan	Trường ", "Lê Thị Cẩm	Tú ", "Phan Văn	Tuân ", "Cao Thái	Tuấn ", "Nguyễn Duy	Tuấn ", "Nguyễn Huy	Tuấn ", "Thiều Văn	Việt ", "Nguyễn Kiều	Vy"];
+        let findStr = "Nguyễn";
+        for (let i = 0; i < danhSach.length; i++) {
+            if (danhSach[i].toUpperCase().startsWith(findStr.toUpperCase())) {
+                dem++;
+            }
+        }
+        document.writeln("<br>Số bạn họ Nguyễn: " + dem + " bạn")
+
+        let i = 0;
+        while (i <= 10) {
+            document.writeln("<br>" + "The number is: " + i + "<br>");
+            i++;
+        }
+
+        // Pop-up cảnh báo trang
+        alert("Em ăn cơm chưa ?");
+        let result = confirm("Nhấn vào đây !")
+        if (result) {
+            document.writeln("Bạn đã đồng ý !")
+        } else {
+            document.writeln("Bạn đã từ chối !")
+        }
+
+        let rs = prompt("Lên phím !", "36");
+        document.writeln(rs);
+
+        let ten = prompt("Nhập vào họ tên: ", "");
+        let namSinh = prompt("Nhập vào năm sinh: ", "");
+
+        function sayGex(ten, namSinh) {
+            if (ten == "" || namSinh == "") {
+                alert("Vui lòng nhập đầy đủ !")
+            } else {
+                document.writeln("<br>Anh trai say gex ! tên: " + ten + " năm sinh: " + namSinh);
+            }
+        }
+        sayGex(ten, namSinh);
+
+
+    </script>
+</body>
+
+</html>
