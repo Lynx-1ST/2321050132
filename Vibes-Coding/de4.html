@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .top-section {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .top-section input,
+        .top-section select,
+        .top-section button {
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        .top-section input,
+        .top-section select {
+            border: 1px solid gray;
+            width: 15%;
+        }
+
+        .top-section button {
+            border: none;
+            background-color: red;
+            color: white;
+            font-weight: bold;
+        }
+
+        .mid-section {
+            width: 95%;
+            margin: auto;
+            background-color: #e2e2e2;
+            border-radius: 10px;
+        }
+
+        .wrapper {
+            padding: 15px;
+            width: 100%;
+        }
+
+        .btn-content {
+            padding: 9px;
+            margin: 3px;
+            border-radius: 8px;
+            border: 1px solid gray;
+        }
+
+        .title {
+            text-align: center;
+            padding: 20px;
+        }
+
+        table {
+            width: 95%;
+            margin: auto;
+            border-collapse: collapse;
+        }
+
+        .border,
+        .border-end {
+            border-top: 1px solid gray;
+        }
+
+        .border-end {
+            border-bottom: 1px solid gray;
+        }
+
+        table td,
+        table th {
+            padding: 20px;
+        }
+
+        .diadiem {
+            text-align: center;
+        }
+
+        .black button {
+            color: white;
+            border: none;
+            background-color: red;
+            border-radius: 5px;
+            margin: 0 5px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="top-section">
+        <input placeholder="Vị trí, chức danh,..." />
+        <select placeholder="Ngành nghề">
+            <option>Ngành nghề</option>
+        </select>
+        <select placeholder="Khu vực">
+            <option>Khu vực</option>
+        </select>
+        <button class="search-button">Tìm kiếm</button>
+    </div>
+    <div class="mid-section">
+        <div class="wrapper">
+            <button class="btn-content">Không yêu cầu kinh nghiệm</button>
+            <button class="btn-content">Kế toán</button>
+            <button class="btn-content">Kinh doanh</button>
+            <button class="btn-content">Tuyển dụng - Nhân sự</button>
+            <button class="btn-content">Nhân viên kinh doanh</button>
+            <button class="btn-content">Tư vấn</button>
+            <button class="btn-content">Account Management</button>
+            <button class="btn-content">Sales B2B</button>
+            <button class="btn-content">Chăm sóc khách hàng</button>
+            <button class="btn-content">Teensales</button>
+            <button class="btn-content">Sales Consultants</button>
+            <button class="btn-content">Lập trình viên</button>
+        </div>
+    </div>
+    <div>
+        <table>
+            <div class="title">
+                <h1 style="color: red">VIỆC LÀM NỔI BẬT</h1>
+            </div>
+            <tr>
+                <th>Vị trí</th>
+                <th>Thu nhập</th>
+                <th>Địa điểm</th>
+            </tr>
+            <tr class="border">
+                <td class="black">
+                    <button>Hot</button>
+                    Chuyên viên Phát triển Kinh doanh (Kênh ngân hàng)
+                </td>
+                <td>Từ 20.000.000VND đến 25.000.000 VND</td>
+                <td class="diadiem">Hà Nội</td>
+            </tr>
+            <tr class="border">
+                <td class="black">
+                    <button>Hot</button>
+                    Nhân viên Kinh doanh giải pháp chuyển đổi số
+                </td>
+                <td>Up to 30.000.000 VND ...</td>
+                <td class="diadiem">Hồ Chí Minh</td>
+            </tr>
+            <tr class="border">
+                <td class="black">
+                    <button>Hot</button>
+                    Nhân viên Phát triển đối tác - Thị trường Hộ kinh doanh
+                </td>
+                <td>Từ 15.000.000VND đến 30.000.000 VND</td>
+                <td class="diadiem">Hà Nội</td>
+            </tr>
+            <tr class="border-end">
+                <td class="black">
+                    <button>Hot</button>
+                    Nhân viên Kinh doanh Phần mềm cho Hộ kinh doanh
+                </td>
+                <td>Từ 25.000.000VND đến 30.000.000 VND</td>
+                <td class="diadiem">Hồ Chí Minh</td>
+            </tr>
+
+        </table>
+    </div>
+</body>
+
+</html>

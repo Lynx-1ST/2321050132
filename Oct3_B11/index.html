@@ -66,17 +66,17 @@
         let rs = prompt("Lên phím !", "36");
         document.writeln(rs);
 
-        let ten = prompt("Nhập vào họ tên: ", "");
-        let namSinh = prompt("Nhập vào năm sinh: ", "");
+        let hoTen = prompt("Nhập vào họ tên: ", "");
+        let year = prompt("Nhập vào năm sinh: ", "");
 
         function sayGex(ten, namSinh) {
-            if (ten == "" || namSinh == "") {
+            if (ten == null || namSinh == null) {
                 alert("Vui lòng nhập đầy đủ !")
             } else {
                 document.writeln("<br>Anh trai say gex ! tên: " + ten + " năm sinh: " + namSinh);
             }
         }
-        sayGex(ten, namSinh);
+        sayGex(hoTen, year);
 
 
     </script>

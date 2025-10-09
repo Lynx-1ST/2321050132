@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .section1 {
+            background-color: rgb(66, 176, 255);
+            padding: 30px;
+        }
+
+        .title {
+            text-align: center;
+            color: white;
+
+        }
+
+        .box-wrap {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .img img {
+            border-radius: 20px;
+            padding: 10px;
+        }
+
+        .box {
+            width: 25%;
+            background-color: white;
+            border-radius: 20px;
+        }
+
+        .box .subtitle {
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .box .subtitle,
+        .box p {
+            padding: 5px 20px;
+        }
+
+        .section2 {
+            width: 90%;
+            margin: auto;
+            margin-top: 30px;
+            margin-bottom: 30px
+        }
+
+        .section2 .wrapper {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            background-color: rgb(188, 67, 49);
+            color: white;
+            padding: 20px 50px;
+            border-radius: 12px;
+
+        }
+
+        .right,
+        .left {
+            width: 50%;
+        }
+
+        .left h1 {
+            color: black;
+        }
+
+        .left-wrap {
+            width: 90%;
+            background-color: white;
+            color: black;
+            padding: 15px;
+            border-radius: 12px;
+        }
+
+        .form input {
+            padding: 12px;
+            width: 90%;
+            border-radius: 8px;
+        }
+
+        .form select {
+            padding: 12px;
+            width: 95.7%;
+            border-radius: 8px;
+        }
+
+        .form input,
+        .form select {
+            margin-top: 8px;
+            border: 1px solid gray;
+        }
+
+        .form {
+            width: 100%;
+            text-align: center;
+        }
+
+        .subtitle-s2 {
+            width: 95%;
+            margin-left: 15px;
+        }
+
+        .subtitle-s2 a {
+            text-decoration: none;
+        }
+
+        .button-s2 {
+            width: 90%;
+            margin: auto;
+        }
+
+        .button-s2 button {
+            width: 100%;
+            padding: 10px;
+            background-color: #ffb964;
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="section1">
+        <div class="title">
+            <h1>Ứng dụng công nghệ hiện đại</h1>
+        </div>
+        <div class="box-wrap">
+            <div class="box">
+                <div class="img">
+                    <img src="lgo.png" alt="">
+                </div>
+                <div class="subtitle">
+                    AI dự báo nhu cầu nhập hàng
+                </div>
+                <p>Dựa trên lịch sử tiêu thụ và xu hướng thị trường, AI giúp dự báo chính xác</p>
+            </div>
+            <div class="box">
+                <div class="img">
+                    <img src="lgo.png" alt="">
+                </div>
+                <div class="subtitle">
+                    Tích hợp RFID
+                </div>
+                <p>Công nghệ nhận dạng tần số vô tuyến giúp theo dõi hàng hoá theo thời gian thực, nâng cao độ chính xác
+                    trong quản lý kho.</p>
+            </div>
+            <div class="box">
+                <div class="img">
+                    <img src="lgo.png" alt="">
+                </div>
+                <div class="subtitle">
+                    IoT theo dõi hàng hoá
+                </div>
+                <p>Các thiết bị IoT được tích hợp giúp theo dõi hàng hoá theo thời gian thực, cung cấp thông tin chính
+                    xác về vị trí và tình trạng hàng hoá.</p>
+            </div>
+        </div>
+    </div>
+    <div class="section2">
+        <div class="wrapper">
+            <div class="right">
+                <h1>Đăng ký nhận tư vấn phần mềm AMIS Kho hàng</h1>
+            </div>
+            <div class="left">
+                <div class="left-wrap">
+                    <div class="title">
+                        <h1>Nhận tư vấn miễn phí</h1>
+                    </div>
+                    <div class="form">
+                        <input placeholder="Họ và tên đệm *" />
+                        <div>
+                            <select placeholder="Chức vụ/Vai trò *">
+                                <option>Chức vụ/Vai trò *</option>
+                            </select>
+                        </div>
+                        <div>
+                            <input placeholder="Email *" />
+                        </div>
+                        <div>
+                            <input placeholder="Số điện thoại *" />
+                        </div>
+                        <div>
+                            <input placeholder="Tên công ty *" />
+                        </div>
+                    </div>
+                    <div class="subtitle-s2">
+                        <h3>Bằng cách nhấn vào nút Đăng ký, bạn đã đồng ý với <a href="">chính sách quyền riêng tư</a>
+                        </h3>
+                    </div>
+                    <div class="button-s2">
+                        <button>Đăng ký</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+
+</html>
