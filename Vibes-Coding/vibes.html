@@ -1,0 +1,220 @@
+<html>
+
+<head>
+
+	<title>
+		Luyện tập
+	</title>
+	<style>
+		body {
+			margin: 0;
+		}
+
+		.section-1 {
+			display: flex;
+			justify-content: center;
+			gap: 15px;
+			margin: 30px;
+		}
+
+		.input input,
+		.input select,
+		.search-btn button {
+			padding: 15px;
+			border-radius: 8px;
+			border: 1px solid #ccc;
+			color: gray;
+		}
+
+		.search-btn button {
+			background-color: red;
+			font-weight: bold;
+			color: white;
+		}
+
+		.section-2 {
+			background-color: #ccc;
+			width: 75%;
+			margin: auto;
+			border-radius: 8px;
+		}
+
+		.container {
+			display: flex;
+			flex-wrap: wrap;
+			padding: 30px 10px;
+			gap: 10px;
+			width: 100%;
+			color: black;
+		}
+
+		.item {
+			padding: 10px;
+			background-color: white;
+			border-radius: 8px;
+		}
+
+		.title h1 {
+			text-align: center;
+			color: red;
+			margin-top: 60px;
+		}
+
+		table {
+			width: 75%;
+			margin: auto;
+			border-collapse: collapse;
+		}
+
+		.bold-text {
+			font-weight: bold;
+		}
+
+		td {
+			padding: 15px;
+		}
+
+		.align {
+			text-align: center;
+		}
+
+		.border-top {
+			border-top: 1px solid #ccc;
+			border-bottom: 1px solid #ccc;
+		}
+
+		.hot {
+			padding: 0px 5px;
+			font-size: 12px;
+			background-color: red;
+			border: none;
+			color: white;
+			border-radius: 8px;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="section-1">
+		<div class="input">
+			<input placeholder="Vị trí, chức danh" id="ps" />
+		</div>
+		<div class="input">
+			<select required>
+				<option hidden> Ngành nghề </option>
+			</select>
+		</div>
+		<div class="input">
+			<select required>
+				<option hidden> Khu vực </option>
+			</select>
+		</div>
+		<div class="search-btn">
+			<button onclick="timKiem()"> Tìm kiếm </button>
+		</div>
+	</div>
+	<div class="section-2">
+		<div class="container">
+			<div class="item">
+				Không yêu cầu kinh nghiệm
+			</div>
+			<div class="item">
+				Kế toán
+			</div>
+			<div class="item">
+				Kinh doanh
+			</div>
+			<div class="item">
+				Tuyển dụng, nhân sự
+			</div>
+			<div class="item">
+				Nhân viên kinh doanh
+			</div>
+			<div class="item">
+				Tư vấn
+			</div>
+			<div class="item">
+				Account Management
+			</div>
+			<div class="item">
+				Sales B2B
+			</div>
+			<div class="item">
+				Chăm sóc khách hàng
+			</div>
+			<div class="item">
+				Telesales
+			</div>
+			<div class="item">
+				Sales Consultants
+			</div>
+			<div class="item">
+				Lập trình viên
+			</div>
+		</div>
+	</div>
+	<div class="section-3">
+		<div class="title">
+			<h1> Việc làm nổi bật </h1>
+		</div>
+		<div class="table">
+			<table>
+				<tr class="align" , class="border-top">
+					<td class="bold-text">Vị trí</td>
+					<td class="bold-text">Thu nhập</td>
+					<td class="bold-text">Địa điểm</td>
+				</tr>
+				<tr class="border-top">
+					<td class="bold-text"><button class="hot">HOT</button> Chuyên viên Phát triển Kinh doanh (Kênh ngân
+						hàng) </td>
+					<td> Từ 20.000.000VND đến 25.000.000VND </td>
+					<td class="align"> Hà Nội </td>
+				</tr>
+				<tr class="border-top">
+					<td class="bold-text"> <button class="hot">HOT</button> Nhân viên Kinh doanh giải pháp chuyển đổi số
+						- nền tàng MISA AMIS </td>
+					<td> Up to 30.000.000VND </td>
+					<td class="align"> Hồ Chí Minh </td>
+				</tr>
+				<tr class="border-top">
+					<td class="bold-text"> <button class="hot">HOT</button> Nhân viên Phát triển đối tác - Thị trường hộ
+						kinh doanh </td>
+					<td> Từ 15.000.000VND đến 30.000.000VND </td>
+					<td class="align"> Hà Nội </td>
+				</tr>
+				<tr class="border-top">
+					<td class="bold-text"> <button class="hot">HOT</button> Nhân viên Kinh doanh Phần mềm cho Hộ kinh
+						doanh </td>
+					<td> Từ 25.000.000VND đến 30.000.000VND </td>
+					<td class="align"> Hồ Chí Minh </td>
+				</tr>
+			</table>
+		</div>
+	</div>
+
+	<script>
+		const viTri = ["Trưởng phòng", "Giám đốc", "Kế toán", "Nhân viên", "CEO"];
+		function timKiem() {
+			let ps = document.getElementById('ps');
+			ps.style.border = "1px solid #ccc";
+			let nhap = ps.value.trim();
+			if (nhap === "" || nhap == null) {
+				alert("Bạn hãy nhập chính xác tên vị trí/chức danh");
+				ps.style.border = "2px solid red";
+				return false;
+			} else {
+				const ketQua = viTri.find(item => item.toLowerCase() == nhap.toLowerCase());
+				if (ketQua) {
+					alert("Đã tìm thấy vị trí: " + ketQua);
+					return true;
+				} else {
+					alert("Không tìm thấy vị trí bạn cần tìm!");
+					return false;
+				}
+			}
+		}
+
+	</script>
+</body>
+
+</html>

@@ -83,32 +83,31 @@
             border-radius: 12px;
         }
 
-        .form input {
-            padding: 12px;
-            width: 90%;
-            border-radius: 8px;
-        }
-
-        .form select {
-            padding: 12px;
-            width: 95.7%;
-            border-radius: 8px;
-        }
-
-        .form input,
-        .form select {
-            margin-top: 8px;
+        form input,
+        form select {
+            margin-top: 15px;
             border: 1px solid gray;
+            box-sizing: border-box;
+            padding: 13px;
+            width: 100%;
+            border-radius: 5px;
         }
 
-        .form {
+        form {
+            color: gray;
+        }
+
+        form h1 {
             width: 100%;
             text-align: center;
         }
 
         .subtitle-s2 {
-            width: 95%;
+            width: 100%;
             margin-left: 15px;
+            font-size: 16px;
+            line-height: 1.6;
+            color: black;
         }
 
         .subtitle-s2 a {
@@ -179,33 +178,64 @@
                     <div class="title">
                         <h1>Nhận tư vấn miễn phí</h1>
                     </div>
-                    <div class="form">
-                        <input placeholder="Họ và tên đệm *" />
+                    <form action="">
+                        <input id="name" placeholder="Họ và tên đệm *" required />
                         <div>
-                            <select placeholder="Chức vụ/Vai trò *">
-                                <option>Chức vụ/Vai trò *</option>
+                            <select placeholder="Chức vụ/Vai trò *" required>
+                                <option hidden>Chức vụ/Vai trò *</option>
                             </select>
                         </div>
                         <div>
-                            <input placeholder="Email *" />
+                            <input type="email" placeholder="Email *" required />
                         </div>
                         <div>
-                            <input placeholder="Số điện thoại *" />
+                            <input type="tel" placeholder="Số điện thoại *" required />
                         </div>
                         <div>
-                            <input placeholder="Tên công ty *" />
+                            <input placeholder="Tên công ty *" required />
                         </div>
-                    </div>
-                    <div class="subtitle-s2">
-                        <h3>Bằng cách nhấn vào nút Đăng ký, bạn đã đồng ý với <a href="">chính sách quyền riêng tư</a>
-                        </h3>
-                    </div>
-                    <div class="button-s2">
-                        <button>Đăng ký</button>
-                    </div>
+
+                        <div class="subtitle-s2">
+                            <p>Bằng cách nhấn vào nút Đăng ký, bạn đã đồng ý với <a href="">chính sách quyền riêng
+                                    tư</a>
+                            </p>
+                        </div>
+                        <div class="button-s2">
+                            <button type="submit" onclick="dangNhap()">Đăng ký</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
+
+        <script>
+            let input = document.getElementsByTagName("input");
+            function dangNhap() {
+                input[0].style.border = "1px solid gray";
+                input[1].style.border = "1px solid gray";
+                input[2].style.border = "1px solid gray";
+                input[3].style.border = "1px solid gray";
+                if (input[0].value == "" || input[0].value == "") {
+                    alert("Vui long nhap ho ten !")
+                    input[0].style.border = "2px solid red"
+                } else if (input[1].value == "" || input[1].value == "") {
+                    alert("Vui long nhap email !")
+                    input[1].style.border = "2px solid red"
+                } else if (input[2].value != "" || input[2].value != "") {
+                    if (isNaN(input[2].value) == true) {
+                        alert("Vui long nhap dung dinh dang so dien thoai !")
+                        input[2].style.border = "2px solid red"
+                    }
+                } else if (input[2].value == "" || input[2].value == "") {
+                    alert("Vui long nhap so dien thoai !")
+                    input[2].style.border = "2px solid red"
+                } else if (input[3].value == "" || input[3].value == "") {
+                    alert("Vui long nhap ten cong ty !")
+                    input[3].style.border = "2px solid red"
+                }
+
+            }
+        </script>
 </body>
 
 </html>
