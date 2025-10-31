@@ -7,6 +7,7 @@
     <title>B12</title>
 </head>
 
+
 <body>
     <h1>Tính tổng</h1>
     <b>Biết tổng: A * 0.6 + B * 0.3 + C * 0.1</b>
@@ -36,6 +37,24 @@
         <input id="dc">
     </div>
 
+    <hr>
+    <div class="wrapper">
+        <div class="input">
+            <input id="soA" type="number" placeholder="Nhập số thứ nhất: " />
+            <input id="soB" type="number" placeholder="Nhập số thứ hai: " />
+        </div>
+        <br>
+        <div class="btn">
+            <button onclick="tinh('cong')">Cộng</button>
+            <button onclick="tinh('tru')">Trừ</button>
+            <button onclick="tinh('nhan')">Nhân</button>
+            <button onclick="tinh('chia')">Chia</button>
+        </div>
+        <br>
+        <div class="kq">
+            <span>Kết quả: <input id="kq1" placeholder="Kết quả phép tính" /></span>
+        </div>
+    </div>
 
 
     <script>
@@ -58,6 +77,30 @@
             }
             kq.value = soThuNhat + soThuHai;
         } */
+
+        function tinh(phepTinh) {
+            let soA = parseFloat(document.getElementById("soA").value);
+            let soB = parseFloat(document.getElementById("soB").value);
+            if (!soA || !soB) {
+                alert("Nhập đúng 2 số !")
+            } else {
+                let s;
+                if (phepTinh == 'cong') {
+                    s = soA + soB;
+                } else if (phepTinh == 'tru') {
+                    s = soA - soB;
+                } else if (phepTinh == 'nhan') {
+                    s = soA * soB;
+                } else if (phepTinh == 'chia') {
+                    if (soB == 0) {
+                        alert("Không thể chia cho 0!");
+                    } else {
+                        s = soA / soB;
+                    }
+                }
+                document.getElementById("kq1").value = s;
+            }
+        }
 
         function validate() {
             let diemA = parseFloat(document.getElementById("A").value);
