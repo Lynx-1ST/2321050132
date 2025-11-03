@@ -5,6 +5,64 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 400px;
+            margin: 80px auto;
+            background: white;
+            padding: 20px 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .row {
+            margin-bottom: 15px;
+        }
+
+        div span {
+            margin-top: 10px;
+            display: block;
+            font-weight: bold;
+            padding: 5px;
+            font-size: 16px;
+        }
+
+        input {
+            box-sizing: border-box;
+            width: 100%;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+
+        button {
+            box-sizing: border-box;
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        img {
+            display: block;
+            margin: 15px auto;
+            width: 100px;
+        }
+    </style>
 </head>
 
 <body>
@@ -23,23 +81,24 @@
  -->
 
     <div class="container">
-        <div>
-            Nhập vào chiều cao: <input placeholder="Chiều cao (m)" id="cc">
+        <h1>Tính chỉ số BMI</h1>
+        <div class="row">
+            <span>Chiều cao (m)</span>
+            <input type="number" id="cc" placeholder="VD: 1.70">
         </div>
-        <div>
-            Nhập vào chiều cân nặng: <input placeholder="Cân nặng (Kg)" id="cn">
+        <div class="row">
+            <span>Cân nặng (kg)</span>
+            <input type="number" id="cn" placeholder="VD: 60">
         </div>
-        <div>
-            <img src="" alt="" width="100px">
+        <button onclick="validate()">Tính BMI</button>
+        <img id="img" src="" alt="">
+        <div class="row">
+            <span>BMI:</span>
+            <input id="kq" readonly>
         </div>
-        <div>
-            <button onclick=validate()>Tính BMI</button>
-        </div>
-        <div>
-            BMI: <input placeholder="Kết quả hiển thị" id="kq" readonly>
-        </div>
-        <div>
-            Nhận xét: <input id="nx" readonly>
+        <div class="row">
+            <span>Nhận xét:</span>
+            <input id="nx" readonly>
         </div>
     </div>
 </body>
@@ -50,40 +109,44 @@
         let height = parseFloat(document.getElementById("cc").value);
         let canhBao = "";
 
-        if (isNaN(weight) || weight <= 0) {
-            canhBao += "Cân nặng nhập vào không hợp lệ !";
-        } else if (isNaN(height) || height <= 0) {
+        if (isNaN(height) || height <= 0) {
             canhBao += "Chiều cao nhập vào không hợp lệ !";
+        } else if (isNaN(weight) || weight <= 0) {
+            canhBao += "Cân nặng nhập vào không hợp lệ !";
         }
 
         if (canhBao) {
             alert(canhBao);
             return 0;
         }
-        calBMI();
+        calBMI(weight, height);
     }
 
     function calBMI(weight, height) {
         let bmi = weight / (height * height);
         const bmiDisplay = bmi.toFixed(2);
         document.getElementById("kq").value = bmiDisplay;
+        let img = document.getElementById("img");
+        let nx = document.getElementById("nx");
+
         if (bmi < 18.5) {
-            document.getElementsByClassName("img")[0].src = "./assets/thieucan.jpg";
-            document.getElementById("nx").value = "Bạn bị thiếu cân !";
+            img.src = "./assets/thieucan.jpg";
+            nx.value = "Bạn bị thiếu cân!";
         } else if (bmi < 25) {
-            document.getElementsByClassName("img")[0].src = "./assets/candoi.jpg";
-            document.getElementById("nx").value = "Bạn cân đối";
+            img.src = "./assets/candoi.jpg";
+            nx.value = "Bạn cân đối 👍";
         } else if (bmi < 30) {
-            document.getElementsByClassName("img")[0].src = "./assets/thuacan.jpg";
-            document.getElementById("nx").value = "Bạn bị thừa cân";
+            img.src = "./assets/thuacan.jpg";
+            nx.value = "Bạn bị thừa cân";
         } else if (bmi < 40) {
-            document.getElementsByClassName("img")[0].src = "./assets/bp1.jpg";
-            document.getElementById("nx").value = "Bạn bị bạn bị béo phì cấp độ 1-2";
-        } else if (bmi >= 40) {
-            document.getElementsByClassName("img")[0].src = "./assets/bpnang.jpg";
-            document.getElementById("nx").value = "Bạn bị béo phì nặng !";
+            img.src = "./assets/bp1.jpg";
+            nx.value = "Béo phì độ 1-2";
+        } else {
+            img.src = "./assets/bpnang.jpg";
+            nx.value = "Béo phì nặng!";
         }
     }
+
 </script>
 
 </html>
