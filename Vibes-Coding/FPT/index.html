@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FPT Play</title>
+    <link rel="stylesheet" href="fptplay.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="header_wrap">
+            <div class="logo">
+                <img src="https://images.fptplay53.net/media/photo/OTT/2025/05/26/logowebsite4x_1748221195181.png"
+                    alt="FPT Play" />
+            </div>
+            <div class="nav">
+                <div class="title">
+                    <p>Trang chủ</p>
+                </div>
+                <div class="title">
+                    <p>Truyền hình</p>
+                </div>
+                <div class="title">
+                    <p>Phim bộ</p>
+                </div>
+                <div class="title">
+                    <p>V.League</p>
+                </div>
+                <div class="title">
+                    <p>Thiếu nhi</p>
+                </div>
+                <div class="title">
+                    <p>Xem thêm</p>
+                </div>
+            </div>
+
+            <div class="header-right">
+                <div class="icon">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-bell" aria-hidden="true"></i>
+                </div>
+                <div class="header-button">
+                    <button class="btn">Mua gói</button>
+                </div>
+                <div class="nav2">
+                    <b>Đăng nhập</b>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="main-wrapper">
+            <div class="small-banner">
+                <img
+                    src="https://github.com/ForgetK05/2321050014/blob/main/B%C3%A0i7/fpt/img/09_68bfea5810013f0001205210.jpg?raw=true">
+            </div>
+            <div class="banner">
+                <div class="film-info">
+                    <h2 id="tenPhim"></h2>
+                    <b>Năm:</b> <span id="namPhatHanh"></span>
+                    <b>Thời lượng:</b> <span id="thoiLuong"></span> giờ
+                    <b>Quốc gia:</b> <span id="quocGia"></span>
+                    <b>Độ tuổi:</b> <span id="doTuoi"></span>+
+                </div>
+                <img class="banner-img" src="./assets/muado-banner.jpg" alt="Banner" />
+            </div>
+            <div class="qc">
+                <img src="https://github.com/ForgetK05/2321050014/blob/main/B%C3%A0i7/fpt/img/qc.jpg?raw=true">
+            </div>
+        </div>
+
+        <!-- Section 1 -->
+        <div class="wrapper">
+            <div class="main-title">
+                <h1>Top phim</h1>
+            </div>
+            <div class="movies">
+                <div onclick=chFilm(1) class="movie">
+                    <img src="./assets/muado-vertical.jpg" alt="">
+                    <div class="title">Movie_Name</div>
+                </div>
+                <div class="movie" onclick=chFilm(2)>
+                    <img src="./assets/conan.jpg" alt="">
+                    <div class="title">Movie_Name</div>
+                </div>
+                <div class="movie"><img src="https://picsum.photos/300/450?1" alt="">
+                    <div class="title">Movie_Name</div>
+                </div>
+                <div class="movie"><img src="https://picsum.photos/300/450?1" alt="">
+                    <div class="title">Movie_Name</div>
+                </div>
+                <div class="movie"><img src="https://picsum.photos/300/450?1" alt="">
+                    <div class="title">Movie_Name</div>
+                </div>
+                <div class="movie"><img src="https://picsum.photos/300/450?1" alt="">
+                    <div class="title">Movie_Name</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 2 -->
+        <div class="wrapper">
+            <div class="main-title">
+                <h1>Top phim</h1>
+            </div>
+            <div class="movies">
+                <div class="movie"><img src="https://picsum.photos/300/450?1" alt="">
+                    <div class="title">Movie_Name</div>
+                </div>
+                <div class="movie"><img src="https://picsum.photos/300/450?1" alt="">
+                    <div class="title">Movie_Name</div>
+                </div>
+                <div class="movie"><img src="https://picsum.photos/300/450?1" alt="">
+                    <div class="title">Movie_Name</div>
+                </div>
+                <div class="movie"><img src="https://picsum.photos/300/450?1" alt="">
+                    <div class="title">Movie_Name</div>
+                </div>
+                <div class="movie"><img src="https://picsum.photos/300/450?1" alt="">
+                    <div class="title">Movie_Name</div>
+                </div>
+                <div class="movie"><img src="https://picsum.photos/300/450?1" alt="">
+                    <div class="title">Movie_Name</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 3 -->
+        <div class="wrapper">
+            <div class="main-title">
+                <h1>Top phim</h1>
+            </div>
+            <div class="movies">
+                <div class="movie"><img src="https://picsum.photos/300/450?1" alt="">
+                    <div class="title">Movie_Name</div>
+                </div>
+                <div class="movie"><img src="https://picsum.photos/300/450?1" alt="">
+                    <div class="title">Movie_Name</div>
+                </div>
+                <div class="movie"><img src="https://picsum.photos/300/450?1" alt="">
+                    <div class="title">Movie_Name</div>
+                </div>
+                <div class="movie"><img src="https://picsum.photos/300/450?1" alt="">
+                    <div class="title">Movie_Name</div>
+                </div>
+                <div class="movie"><img src="https://picsum.photos/300/450?1" alt="">
+                    <div class="title">Movie_Name</div>
+                </div>
+                <div class="movie"><img src="https://picsum.photos/300/450?1" alt="">
+                    <div class="title">Movie_Name</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <hr style="width:80%; border:2px solid #252525; margin: 70px 0px 0px 10% ">
+            <div class="row">
+                <div class="col1">
+                    <div class="img1"><img src="https://fptplay.vn/_nuxt/img/logo-fpt-play.06da7da.png" alt=""></div>
+                    <div class="img1"><img src="https://fptplay.vn/_nuxt/img/logoSaleNoti.cb85045.png" alt=""></div>
+                    <div class="img1"><img
+                            src="https://images.dmca.com/Badges/_dmca_premi_badge_4.png?ID=90dbd7fd-a8ad-4f7e-808f-f8b516cd4cc7"
+                            alt=""></div>
+                </div>
+                <div class="col1">
+                    <div class="col-content">
+                        <p>Về FPT Play</p>
+                    </div>
+                    <div class="col-content">
+                        <p>Giới thiệu</p>
+                    </div>
+                    <div class="col-content">
+                        <p>Các gói dịch vụ</p>
+                    </div>
+                    <div class="col-content">
+                        <p>Liên hệ</p>
+                    </div>
+                    <div class="col-content">
+                        <p>Trung tâm hỗ trợ</p>
+                    </div>
+                    <div class="col-content">
+                        <p>Thông tin</p>
+                    </div>
+                </div>
+                <div class="col1">
+                    <div class="col-content">
+                        <p>Về FPT Play</p>
+                    </div>
+                    <div class="col-content">
+                        <p>Giới thiệu</p>
+                    </div>
+                    <div class="col-content">
+                        <p>Các gói dịch vụ</p>
+                    </div>
+                    <div class="col-content">
+                        <p>Liên hệ</p>
+                    </div>
+                    <div class="col-content">
+                        <p>Trung tâm hỗ trợ</p>
+                    </div>
+                    <div class="col-content">
+                        <p>Thông tin</p>
+                    </div>
+                </div>
+                <div class="col1">
+                    <div class="col-content">
+                        <p>Về FPT Play</p>
+                    </div>
+                    <div class="col-content">
+                        <p>Giới thiệu</p>
+                    </div>
+                    <div class="col-content">
+                        <p>Các gói dịch vụ</p>
+                    </div>
+                    <div class="col-content">
+                        <p>Liên hệ</p>
+                    </div>
+                    <div class="col-content">
+                        <p>Trung tâm hỗ trợ</p>
+                    </div>
+                    <div class="col-content">
+                        <p>Thông tin</p>
+                    </div>
+                </div>
+                <div class="col1">
+                    <div class="col-content col-content2">
+                        <i class="fa fa-phone" aria-hidden="true"></i>
+                        <span>19006600</span>
+                    </div>
+                    <div class="col-content col-content2">
+                        <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                        <span>hotrofptplay@fpt.com</span>
+                    </div>
+
+                    <div class="col-content col-content2">
+                        <p>Theo dõi chúng tôi trên</p>
+                    </div>
+                    <div class="icon-2">
+                        <span class="icon">
+                            <i class="fa fa-facebook-square" aria-hidden="true"></i>
+                        </span>
+                        <span class="icon">
+                            <i class="fa fa-facebook-square" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr style="width:80%; border:1px solid #252525">
+        <div class="header-bottom">
+            <div class="bottom-left">
+                <p>Công ty Cổ phần Viễn Thông FPT - Người đại diện: Ông Hoàng Việt Anh. Trụ sở: Tầng 2, Tòa nhà FPT
+                    Cầu Giấy, Số 17 Phố Duy Tân, Phường Dịch Vọng Hậu, Quận Cầu Giấy, TP.Hà Nội
+
+                    Địa chỉ liên lạc: Tầng 9, Block A, tòa nhà FPT Cầu Giấy, số 10 Phạm Văn Bạch, quận Cầu Giấy, TP.
+                    Hà Nội
+
+                    Số điện thoại liên hệ: 024 7300 2222. Thư điện tử: hotrokhachhang@fpt.com hoặc
+                    hotrofptplay@fpt.com</p>
+                <p>Giấy chứng nhận đăng ký doanh nghiệp số 0101778163 do Sở Kế hoạch và Đầu tư Thành phố Hà Nội cấp
+                    lần đầu ngày 28/7/2005, cấp đăng ký thay đổi lần thứ 32 vào ngày 21/12/2023.
+
+                    Giấy phép cung cấp dịch vụ phát thanh, truyền hình trả tiền số 377/GP-BTTTT cấp sửa đổi bổ sung
+                    lần 1 ngày 10/10/2023.
+                </p>
+            </div>
+            <div class="bottom-right">
+                <div class="icon">
+                    <img src="" alt="">
+                </div>
+                <div class="icon">
+                    <img src="" alt="">
+                </div>
+                <div class="icon">
+                    <img src="" alt="">
+                </div>
+                <div class="icon">
+                    <img src="" alt="">
+                </div>
+                <div class="icon">
+                    <img src="" alt="">
+                </div>
+            </div>
+        </div>
+        </div>
+    </footer>
+    <script src="index.js">
+    </script>
+</body>
+
+</html>

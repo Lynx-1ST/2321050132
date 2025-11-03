@@ -90,7 +90,7 @@
             <span>Cân nặng (kg)</span>
             <input type="number" id="cn" placeholder="VD: 60">
         </div>
-        <button onclick="validate()">Tính BMI</button>
+        <button onclick="validateInput()">Tính BMI</button>
         <img id="img" src="" alt="">
         <div class="row">
             <span>BMI:</span>
@@ -104,7 +104,7 @@
 </body>
 
 <script>
-    function validate() {
+    function validateInput() {
         let weight = parseFloat(document.getElementById("cn").value);
         let height = parseFloat(document.getElementById("cc").value);
         let canhBao = "";
@@ -134,13 +134,13 @@
             nx.value = "Bạn bị thiếu cân!";
         } else if (bmi < 25) {
             img.src = "./assets/candoi.jpg";
-            nx.value = "Bạn cân đối 👍";
+            nx.value = "Bạn cân đối !";
         } else if (bmi < 30) {
             img.src = "./assets/thuacan.jpg";
             nx.value = "Bạn bị thừa cân";
         } else if (bmi < 40) {
             img.src = "./assets/bp1.jpg";
-            nx.value = "Béo phì độ 1-2";
+            nx.value = "Bạn bị béo phì độ 1-2";
         } else {
             img.src = "./assets/bpnang.jpg";
             nx.value = "Béo phì nặng!";
