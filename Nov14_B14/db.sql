@@ -57,3 +57,4 @@ CREATE TABLE perms (
 	id INT,
     role char
 );
+# Xây dựng 1 CSDL hoàn chỉnh, viết các câu lệnh để chạy nhiều lần không lỗi ! Mỗi 1 bảng tạo khoảng 30 dữ liệu
