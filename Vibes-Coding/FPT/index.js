@@ -40,5 +40,4 @@ function chFilm(id) {
     }
   }
 }
-
 hienThiThongTin(currFilm);
