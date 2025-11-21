@@ -1,301 +1,290 @@
-DROP DATABASE IF EXISTS quan_ly_web_phim;
-CREATE DATABASE IF NOT EXISTS quan_ly_web_phim;
-USE quan_ly_web_phim;
-
+-- 1. Bảng thể loại
 CREATE TABLE IF NOT EXISTS the_loai (
-  id INT PRIMARY KEY,
-  ten_the_loai VARCHAR(50)
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    ten_the_loai VARCHAR(50) NOT NULL
 );
 
+-- 2. Bảng vai trò
 CREATE TABLE IF NOT EXISTS vai_tro (
-  id INT PRIMARY KEY,
-  ten_vai_tro VARCHAR(20)
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    ten_vai_tro VARCHAR(20) NOT NULL
 );
 
+-- 3. Bảng quốc gia
 CREATE TABLE IF NOT EXISTS quoc_gia (
-  id INT PRIMARY KEY,
-  ten_quoc_gia VARCHAR(50)
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    ten_quoc_gia VARCHAR(50) NOT NULL
 );
 
+-- 4. Bảng người dùng
 CREATE TABLE IF NOT EXISTS nguoi_dung (
-  id INT PRIMARY KEY,
-  ten_dang_nhap VARCHAR(50),
-  mat_khau VARCHAR(50),
-  ho_ten VARCHAR(50),
-  email VARCHAR(50),
-  sdt VARCHAR(10),
-  vai_tro_id INT,
-  ngay_sinh DATETIME,
-  FOREIGN KEY (vai_tro_id) REFERENCES vai_tro(id)
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    ten_dang_nhap VARCHAR(50) NOT NULL,
+    mat_khau VARCHAR(50) NOT NULL,
+    ho_ten VARCHAR(50),
+    email VARCHAR(50),
+    sdt VARCHAR(10),
+    vai_tro_id INT,
+    ngay_sinh DATETIME,
+    FOREIGN KEY (vai_tro_id) REFERENCES vai_tro(id)
 );
 
-CREATE TABLE IF NOT EXISTS dien_vien (
-  id INT PRIMARY KEY,
-  ten_dien_vien VARCHAR(50)
-);
-
+-- 5. Bảng phim
 CREATE TABLE IF NOT EXISTS phim (
-  id INT PRIMARY KEY,
-  ten_phim VARCHAR(255),
-  dao_dien_id INT,
-  nam_phat_hanh INT,
-  poster VARCHAR(255),
-  quoc_gia_id INT,
-  so_tap INT,
-  trailer VARCHAR(255),
-  mo_ta TEXT,
-  FOREIGN KEY (dao_dien_id) REFERENCES nguoi_dung(id),
-  FOREIGN KEY (quoc_gia_id) REFERENCES quoc_gia(id)
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    ten_phim VARCHAR(255) NOT NULL,
+    dao_dien_id INT,
+    nam_phat_hanh INT,
+    poster VARCHAR(255),
+    quoc_gia_id INT,
+    so_tap INT,
+    trailer VARCHAR(255),
+    mo_ta TEXT,
+    FOREIGN KEY (dao_dien_id) REFERENCES nguoi_dung(id),
+    FOREIGN KEY (quoc_gia_id) REFERENCES quoc_gia(id)
 );
 
+-- 6. Bảng phim - diễn viên
 CREATE TABLE IF NOT EXISTS phim_dien_vien (
-  id INT PRIMARY KEY,
-  phim_id INT,
-  dien_vien_id INT,
-  FOREIGN KEY (phim_id) REFERENCES phim(id),
-  FOREIGN KEY (dien_vien_id) REFERENCES dien_vien(id)
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    phim_id INT,
+    dien_vien_id INT,
+    FOREIGN KEY (phim_id) REFERENCES phim(id),
+    FOREIGN KEY (dien_vien_id) REFERENCES nguoi_dung(id)
 );
 
+-- 7. Bảng phim - thể loại
 CREATE TABLE IF NOT EXISTS phim_the_loai (
-  id INT PRIMARY KEY,
-  phim_id INT,
-  the_loai_id INT,
-  FOREIGN KEY (phim_id) REFERENCES phim(id),
-  FOREIGN KEY (the_loai_id) REFERENCES the_loai(id)
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    phim_id INT,
+    the_loai_id INT,
+    FOREIGN KEY (phim_id) REFERENCES phim(id),
+    FOREIGN KEY (the_loai_id) REFERENCES the_loai(id)
 );
 
+-- 8. Bảng tập phim
 CREATE TABLE IF NOT EXISTS tap_phim (
-  id INT PRIMARY KEY,
-  so_tap INT,
-  tieu_de VARCHAR(255),
-  phim_id INT,
-  thoi_luong FLOAT,
-  trailer VARCHAR(255),
-  FOREIGN KEY (phim_id) REFERENCES phim(id)
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    so_tap INT,
+    tieu_de VARCHAR(255),
+    phim_id INT,
+    thoi_luong FLOAT,
+    trailer VARCHAR(255),
+    FOREIGN KEY (phim_id) REFERENCES phim(id)
 );
+-- GIẢ ĐỊNH: đã USE quan_ly_web_phim;
+
+-- 1. the_loai
+INSERT INTO the_loai (ten_the_loai) VALUES
+('Hành động'),
+('Tình cảm'),
+('Hài'),
+('Kinh dị'),
+('Viễn tưởng'),
+('Hoạt hình'),
+('Tâm lý'),
+('Hình sự'),
+('Phiêu lưu'),
+('Gia đình');
+
+-- 2. vai_tro
+INSERT INTO vai_tro (ten_vai_tro) VALUES
+('admin'),
+('dao_dien'),
+('dien_vien'),
+('user');
+
+-- 3. quoc_gia
+INSERT INTO quoc_gia (ten_quoc_gia) VALUES
+('Viet Nam'),
+('My'),
+('Han Quoc'),
+('Nhat Ban'),
+('Anh'),
+('Phap'),
+('Duc'),
+('Trung Quoc'),
+('Thai Lan'),
+('An Do');
+
+-- 4. nguoi_dung
+-- id 1: admin
+-- id 2-11: dao_dien
+-- id 12-30: dien_vien
+INSERT INTO nguoi_dung
+(ten_dang_nhap, mat_khau, ho_ten, email, sdt, vai_tro_id, ngay_sinh) VALUES
+('admin', 'pass_admin', 'Admin He Thong', 'admin@example.com', '0900000001', 1, '1985-01-01 00:00:00'),
+
+('dd1', 'pass_dd1', 'Dao Dien 1', 'dd1@example.com', '0900000002', 2, '1970-01-01 00:00:00'),
+('dd2', 'pass_dd2', 'Dao Dien 2', 'dd2@example.com', '0900000003', 2, '1971-02-02 00:00:00'),
+('dd3', 'pass_dd3', 'Dao Dien 3', 'dd3@example.com', '0900000004', 2, '1972-03-03 00:00:00'),
+('dd4', 'pass_dd4', 'Dao Dien 4', 'dd4@example.com', '0900000005', 2, '1973-04-04 00:00:00'),
+('dd5', 'pass_dd5', 'Dao Dien 5', 'dd5@example.com', '0900000006', 2, '1974-05-05 00:00:00'),
+('dd6', 'pass_dd6', 'Dao Dien 6', 'dd6@example.com', '0900000007', 2, '1975-06-06 00:00:00'),
+('dd7', 'pass_dd7', 'Dao Dien 7', 'dd7@example.com', '0900000008', 2, '1976-07-07 00:00:00'),
+('dd8', 'pass_dd8', 'Dao Dien 8', 'dd8@example.com', '0900000009', 2, '1977-08-08 00:00:00'),
+('dd9', 'pass_dd9', 'Dao Dien 9', 'dd9@example.com', '0900000010', 2, '1978-09-09 00:00:00'),
+('dd10', 'pass_dd10', 'Dao Dien 10', 'dd10@example.com', '0900000011', 2, '1979-10-10 00:00:00'),
+
+('dv1', 'pass_dv1', 'Dien Vien 1', 'dv1@example.com', '0910000001', 3, '1990-01-01 00:00:00'),
+('dv2', 'pass_dv2', 'Dien Vien 2', 'dv2@example.com', '0910000002', 3, '1990-02-02 00:00:00'),
+('dv3', 'pass_dv3', 'Dien Vien 3', 'dv3@example.com', '0910000003', 3, '1990-03-03 00:00:00'),
+('dv4', 'pass_dv4', 'Dien Vien 4', 'dv4@example.com', '0910000004', 3, '1990-04-04 00:00:00'),
+('dv5', 'pass_dv5', 'Dien Vien 5', 'dv5@example.com', '0910000005', 3, '1990-05-05 00:00:00'),
+('dv6', 'pass_dv6', 'Dien Vien 6', 'dv6@example.com', '0910000006', 3, '1990-06-06 00:00:00'),
+('dv7', 'pass_dv7', 'Dien Vien 7', 'dv7@example.com', '0910000007', 3, '1990-07-07 00:00:00'),
+('dv8', 'pass_dv8', 'Dien Vien 8', 'dv8@example.com', '0910000008', 3, '1990-08-08 00:00:00'),
+('dv9', 'pass_dv9', 'Dien Vien 9', 'dv9@example.com', '0910000009', 3, '1990-09-09 00:00:00'),
+('dv10', 'pass_dv10', 'Dien Vien 10', 'dv10@example.com', '0910000010', 3, '1990-10-10 00:00:00'),
+('dv11', 'pass_dv11', 'Dien Vien 11', 'dv11@example.com', '0910000011', 3, '1990-11-11 00:00:00'),
+('dv12', 'pass_dv12', 'Dien Vien 12', 'dv12@example.com', '0910000012', 3, '1990-12-12 00:00:00'),
+('dv13', 'pass_dv13', 'Dien Vien 13', 'dv13@example.com', '0910000013', 3, '1991-01-01 00:00:00'),
+('dv14', 'pass_dv14', 'Dien Vien 14', 'dv14@example.com', '0910000014', 3, '1991-02-02 00:00:00'),
+('dv15', 'pass_dv15', 'Dien Vien 15', 'dv15@example.com', '0910000015', 3, '1991-03-03 00:00:00'),
+('dv16', 'pass_dv16', 'Dien Vien 16', 'dv16@example.com', '0910000016', 3, '1991-04-04 00:00:00'),
+('dv17', 'pass_dv17', 'Dien Vien 17', 'dv17@example.com', '0910000017', 3, '1991-05-05 00:00:00'),
+('dv18', 'pass_dv18', 'Dien Vien 18', 'dv18@example.com', '0910000018', 3, '1991-06-06 00:00:00'),
+('dv19', 'pass_dv19', 'Dien Vien 19', 'dv19@example.com', '0910000019', 3, '1991-07-07 00:00:00');
+
+-- 5. phim (30 phim, dao_dien_id = 2..11, quoc_gia_id = 1..10)
+INSERT INTO phim
+(ten_phim, dao_dien_id, nam_phat_hanh, poster, quoc_gia_id, so_tap, trailer, mo_ta) VALUES
+('Phim 1', 2, 2010, 'phim1.jpg', 1, 1, 'https://example.com/trailer/p1', 'Mo ta phim 1'),
+('Phim 2', 3, 2011, 'phim2.jpg', 2, 1, 'https://example.com/trailer/p2', 'Mo ta phim 2'),
+('Phim 3', 4, 2012, 'phim3.jpg', 3, 1, 'https://example.com/trailer/p3', 'Mo ta phim 3'),
+('Phim 4', 5, 2013, 'phim4.jpg', 4, 1, 'https://example.com/trailer/p4', 'Mo ta phim 4'),
+('Phim 5', 6, 2014, 'phim5.jpg', 5, 1, 'https://example.com/trailer/p5', 'Mo ta phim 5'),
+('Phim 6', 7, 2015, 'phim6.jpg', 6, 1, 'https://example.com/trailer/p6', 'Mo ta phim 6'),
+('Phim 7', 8, 2016, 'phim7.jpg', 7, 1, 'https://example.com/trailer/p7', 'Mo ta phim 7'),
+('Phim 8', 9, 2017, 'phim8.jpg', 8, 1, 'https://example.com/trailer/p8', 'Mo ta phim 8'),
+('Phim 9', 10, 2018, 'phim9.jpg', 9, 1, 'https://example.com/trailer/p9', 'Mo ta phim 9'),
+('Phim 10', 11, 2019, 'phim10.jpg', 10, 1, 'https://example.com/trailer/p10', 'Mo ta phim 10'),
+('Phim 11', 2, 2020, 'phim11.jpg', 1, 1, 'https://example.com/trailer/p11', 'Mo ta phim 11'),
+('Phim 12', 3, 2021, 'phim12.jpg', 2, 1, 'https://example.com/trailer/p12', 'Mo ta phim 12'),
+('Phim 13', 4, 2015, 'phim13.jpg', 3, 1, 'https://example.com/trailer/p13', 'Mo ta phim 13'),
+('Phim 14', 5, 2016, 'phim14.jpg', 4, 1, 'https://example.com/trailer/p14', 'Mo ta phim 14'),
+('Phim 15', 6, 2017, 'phim15.jpg', 5, 1, 'https://example.com/trailer/p15', 'Mo ta phim 15'),
+('Phim 16', 7, 2018, 'phim16.jpg', 6, 1, 'https://example.com/trailer/p16', 'Mo ta phim 16'),
+('Phim 17', 8, 2019, 'phim17.jpg', 7, 1, 'https://example.com/trailer/p17', 'Mo ta phim 17'),
+('Phim 18', 9, 2020, 'phim18.jpg', 8, 1, 'https://example.com/trailer/p18', 'Mo ta phim 18'),
+('Phim 19', 10, 2021, 'phim19.jpg', 9, 1, 'https://example.com/trailer/p19', 'Mo ta phim 19'),
+('Phim 20', 11, 2022, 'phim20.jpg', 10, 1, 'https://example.com/trailer/p20', 'Mo ta phim 20'),
+('Phim 21', 2, 2010, 'phim21.jpg', 1, 1, 'https://example.com/trailer/p21', 'Mo ta phim 21'),
+('Phim 22', 3, 2011, 'phim22.jpg', 2, 1, 'https://example.com/trailer/p22', 'Mo ta phim 22'),
+('Phim 23', 4, 2012, 'phim23.jpg', 3, 1, 'https://example.com/trailer/p23', 'Mo ta phim 23'),
+('Phim 24', 5, 2013, 'phim24.jpg', 4, 1, 'https://example.com/trailer/p24', 'Mo ta phim 24'),
+('Phim 25', 6, 2014, 'phim25.jpg', 5, 1, 'https://example.com/trailer/p25', 'Mo ta phim 25'),
+('Phim 26', 7, 2015, 'phim26.jpg', 6, 1, 'https://example.com/trailer/p26', 'Mo ta phim 26'),
+('Phim 27', 8, 2016, 'phim27.jpg', 7, 1, 'https://example.com/trailer/p27', 'Mo ta phim 27'),
+('Phim 28', 9, 2017, 'phim28.jpg', 8, 1, 'https://example.com/trailer/p28', 'Mo ta phim 28'),
+('Phim 29', 10, 2018, 'phim29.jpg', 9, 1, 'https://example.com/trailer/p29', 'Mo ta phim 29'),
+('Phim 30', 11, 2019, 'phim30.jpg', 10, 1, 'https://example.com/trailer/p30', 'Mo ta phim 30');
+
+-- 6. phim_the_loai (mỗi phim 1–2 thể loại)
+INSERT INTO phim_the_loai (phim_id, the_loai_id) VALUES
+(1,1),(1,2),
+(2,2),(2,3),
+(3,2),
+(4,1),
+(5,5),
+(6,5),
+(7,1),(7,9),
+(8,7),
+(9,5),
+(10,2),(10,9),
+(11,1),
+(12,4),
+(13,7),
+(14,2),
+(15,3),
+(16,1),
+(17,5),
+(18,7),
+(19,1),(19,5),
+(20,2),
+(21,1),
+(22,3),
+(23,7),
+(24,4),
+(25,2),
+(26,1),
+(27,5),
+(28,7),
+(29,1),
+(30,2);
+
+-- 7. phim_dien_vien (mỗi phim 2 diễn viên: dùng id 12..30)
+INSERT INTO phim_dien_vien (phim_id, dien_vien_id) VALUES
+(1,12),(1,13),
+(2,13),(2,14),
+(3,14),(3,15),
+(4,15),(4,16),
+(5,16),(5,17),
+(6,17),(6,18),
+(7,18),(7,19),
+(8,19),(8,20),
+(9,20),(9,21),
+(10,21),(10,22),
+(11,22),(11,23),
+(12,23),(12,24),
+(13,24),(13,25),
+(14,25),(14,26),
+(15,26),(15,27),
+(16,27),(16,28),
+(17,28),(17,29),
+(18,29),(18,30),
+(19,12),(19,13),
+(20,14),(20,15),
+(21,16),(21,17),
+(22,18),(22,19),
+(23,20),(23,21),
+(24,22),(24,23),
+(25,24),(25,25),
+(26,26),(26,27),
+(27,28),(27,29),
+(28,30),(28,12),
+(29,13),(29,14),
+(30,15),(30,16);
+
+-- 8. tap_phim (5 phim đầu, mỗi phim 3 tập = 15 rows)
+INSERT INTO tap_phim (so_tap, tieu_de, phim_id, thoi_luong, trailer) VALUES
+(1,'Phim 1 - Tap 1',1,90,'https://example.com/trailer/p1_t1'),
+(2,'Phim 1 - Tap 2',1,92,'https://example.com/trailer/p1_t2'),
+(3,'Phim 1 - Tap 3',1,88,'https://example.com/trailer/p1_t3'),
+
+(1,'Phim 2 - Tap 1',2,45,'https://example.com/trailer/p2_t1'),
+(2,'Phim 2 - Tap 2',2,47,'https://example.com/trailer/p2_t2'),
+(3,'Phim 2 - Tap 3',2,44,'https://example.com/trailer/p2_t3'),
+
+(1,'Phim 3 - Tap 1',3,50,'https://example.com/trailer/p3_t1'),
+(2,'Phim 3 - Tap 2',3,51,'https://example.com/trailer/p3_t2'),
+(3,'Phim 3 - Tap 3',3,49,'https://example.com/trailer/p3_t3'),
+
+(1,'Phim 4 - Tap 1',4,40,'https://example.com/trailer/p4_t1'),
+(2,'Phim 4 - Tap 2',4,42,'https://example.com/trailer/p4_t2'),
+(3,'Phim 4 - Tap 3',4,41,'https://example.com/trailer/p4_t3'),
+
+(1,'Phim 5 - Tap 1',5,60,'https://example.com/trailer/p5_t1'),
+(2,'Phim 5 - Tap 2',5,62,'https://example.com/trailer/p5_t2'),
+(3,'Phim 5 - Tap 3',5,59,'https://example.com/trailer/p5_t3');
 
 
-INSERT IGNORE INTO vai_tro (id, ten_vai_tro) VALUES
-  (1, 'admin'),
-  (2, 'user'),
-  (3, 'guest');
+SELECT 
+    p.*, 
+    qg.ten_quoc_gia,
+    us.ho_ten AS dao_dien,
+    dv.ten_dien_vien
+FROM phim p
+JOIN quoc_gia qg ON p.quoc_gia_id = qg.id
+JOIN nguoi_dung us ON p.dao_dien_id = us.id
+JOIN phim_dien_vien pdv ON p.id = pdv.phim_id
+JOIN nguoi_dung dv ON pdv.dien_vien_id = dv.id
+WHERE p.id = 10;
 
-
-INSERT IGNORE INTO quoc_gia (id, ten_quoc_gia) VALUES
-  (1, 'Việt Nam'),
-  (2, 'Mỹ'),
-  (3, 'Hàn Quốc'),
-  (4, 'Nhật Bản'),
-  (5, 'Pháp'),
-  (6, 'Anh'),
-  (7, 'Trung Quốc'),
-  (8, 'Ấn Độ'),
-  (9, 'Đức'),
-  (10, 'Úc');
-
-
-INSERT IGNORE INTO the_loai (id, ten_the_loai) VALUES
-  (1, 'Hành Động'),
-  (2, 'Phiêu Lưu'),
-  (3, 'Hài Hước'),
-  (4, 'Kinh Dị'),
-  (5, 'Tình Cảm'),
-  (6, 'Viễn Tưởng'),
-  (7, 'Hoạt Hình'),
-  (8, 'Tài Liệu'),
-  (9, 'Chiến Tranh'),
-  (10, 'Âm Nhạc');
-
-
-INSERT INTO nguoi_dung (id, ten_dang_nhap, mat_khau, ho_ten, email, sdt, vai_tro_id, ngay_sinh) VALUES
-  (1, 'user1', 'pass1', 'Nguyen Van A', 'user1@mail.com', '0123456781', 1, '1990-01-01'),
-  (2, 'user2', 'pass2', 'Tran Thi B', 'user2@mail.com', '0123456782', 2, '1991-02-02'),
-  (3, 'user3', 'pass3', 'Le Van C', 'user3@mail.com', '0123456783', 3, '1992-03-03'),
-  (4, 'user4', 'pass4', 'Pham Thi D', 'user4@mail.com', '0123456784', 1, '1993-04-04'),
-  (5, 'user5', 'pass5', 'Hoang Van E', 'user5@mail.com', '0123456785', 2, '1994-05-05'),
-  (6, 'user6', 'pass6', 'Bui Thi F', 'user6@mail.com', '0123456786', 3, '1995-06-06'),
-  (7, 'user7', 'pass7', 'Do Van G', 'user7@mail.com', '0123456787', 1, '1990-07-07'),
-  (8, 'user8', 'pass8', 'Vu Thi H', 'user8@mail.com', '0123456788', 2, '1991-08-08'),
-  (9, 'user9', 'pass9', 'Luong Van I', 'user9@mail.com', '0123456789', 3, '1992-09-09'),
-  (10, 'user10', 'pass10', 'Phan Thi K', 'user10@mail.com', '0123456790', 1, '1993-10-10'),
-  (11, 'user11', 'pass11', 'Trinh Van L', 'user11@mail.com', '0123456791', 2, '1994-11-11'),
-  (12, 'user12', 'pass12', 'Ngoc Thi M', 'user12@mail.com', '0123456792', 3, '1995-12-12'),
-  (13, 'user13', 'pass13', 'Dinh Van N', 'user13@mail.com', '0123456793', 1, '1996-01-13'),
-  (14, 'user14', 'pass14', 'Quach Thi O', 'user14@mail.com', '0123456794', 2, '1997-02-14'),
-  (15, 'user15', 'pass15', 'Mai Van P', 'user15@mail.com', '0123456795', 3, '1998-03-15'),
-  (16, 'user16', 'pass16', 'Ngo Thi Q', 'user16@mail.com', '0123456796', 1, '1999-04-16'),
-  (17, 'user17', 'pass17', 'Tran Van R', 'user17@mail.com', '0123456797', 2, '2000-05-17'),
-  (18, 'user18', 'pass18', 'Le Thi S', 'user18@mail.com', '0123456798', 3, '2001-06-18'),
-  (19, 'user19', 'pass19', 'Pham Van T', 'user19@mail.com', '0123456799', 1, '2002-07-19'),
-  (20, 'user20', 'pass20', 'Hoang Thi U', 'user20@mail.com', '0123456700', 2, '2003-08-20'),
-  (21, 'user21', 'pass21', 'Bui Van V', 'user21@mail.com', '0123456701', 3, '2004-09-21'),
-  (22, 'user22', 'pass22', 'Do Thi W', 'user22@mail.com', '0123456702', 1, '2005-10-22'),
-  (23, 'user23', 'pass23', 'Vu Van X', 'user23@mail.com', '0123456703', 2, '2006-11-23'),
-  (24, 'user24', 'pass24', 'Luong Thi Y', 'user24@mail.com', '0123456704', 3, '2007-12-24'),
-  (25, 'user25', 'pass25', 'Phan Van Z', 'user25@mail.com', '0123456705', 1, '2008-01-25'),
-  (26, 'user26', 'pass26', 'Trinh Thi A1', 'user26@mail.com', '0123456706', 2, '2009-02-26'),
-  (27, 'user27', 'pass27', 'Ngoc Van B1', 'user27@mail.com', '0123456707', 3, '2010-03-27'),
-  (28, 'user28', 'pass28', 'Dinh Thi C1', 'user28@mail.com', '0123456708', 1, '2011-04-28'),
-  (29, 'user29', 'pass29', 'Quach Van D1', 'user29@mail.com', '0123456709', 2, '2012-05-29'),
-  (30, 'user30', 'pass30', 'Mai Thi E1', 'user30@mail.com', '0123456710', 3, '2013-06-30');
-
-INSERT INTO dien_vien (id, ten_dien_vien) VALUES
-  (1, 'Bruce Willis'),
-  (2, 'Scarlett Johansson'),
-  (3, 'Tom Hanks'),
-  (4, 'Natalie Portman'),
-  (5, 'Denzel Washington'),
-  (6, 'Jennifer Lawrence'),
-  (7, 'Leonardo DiCaprio'),
-  (8, 'Angelina Jolie'),
-  (9, 'Johnny Depp'),
-  (10, 'Emma Stone'),
-  (11, 'Morgan Freeman'),
-  (12, 'Margot Robbie'),
-  (13, 'Samuel L. Jackson'),
-  (14, 'Gal Gadot'),
-  (15, 'Chris Evans'),
-  (16, 'Anne Hathaway'),
-  (17, 'Matt Damon'),
-  (18, 'Charlize Theron'),
-  (19, 'Ryan Reynolds'),
-  (20, 'Viola Davis'),
-  (21, 'Hugh Jackman'),
-  (22, 'Amy Adams'),
-  (23, 'Will Smith'),
-  (24, 'Emily Blunt'),
-  (25, 'Jake Gyllenhaal'),
-  (26, 'Rachel McAdams'),
-  (27, 'Robert Downey Jr.'),
-  (28, 'Natalie Dormer'),
-  (29, 'Mark Ruffalo'),
-  (30, 'Zoe Saldana');
-
-INSERT INTO phim (id, ten_phim, dao_dien_id, nam_phat_hanh, poster, quoc_gia_id, so_tap, trailer, mo_ta) VALUES
-  (1, 'The Scent of Green Papaya', 1, 1993, 'poster1.jpg', 1, 12, 'trailer1.mp4', 'Phim Việt Nam kinh điển, đoạt giải Cannes.'),
-  (2, 'The Shawshank Redemption', 2, 1994, 'poster2.jpg', 2, 22, 'trailer2.mp4', 'Một trong những phim hay nhất mọi thời đại.'),
-  (3, 'Parasite', 3, 2019, 'poster3.jpg', 3, 12, 'trailer3.mp4', 'Phim Hàn Quốc đoạt giải Oscar Phim hay nhất.'),
-  (4, 'Seven Samurai', 4, 1954, 'poster4.jpg', 4, 14, 'trailer4.mp4', 'Tác phẩm kinh điển Nhật Bản của Akira Kurosawa.'),
-  (5, 'Amélie', 5, 2001, 'poster5.jpg', 5, 15, 'trailer5.mp4', 'Phim Pháp lãng mạn nổi tiếng.'),
-  (6, 'The King’s Speech', 6, 2010, 'poster6.jpg', 6, 13, 'trailer6.mp4', 'Phim Anh về vua George VI vượt khó.'),
-  (7, 'Crouching Tiger, Hidden Dragon', 7, 2000, 'poster7.jpg', 7, 18, 'trailer7.mp4', 'Phim võ thuật Trung Quốc nổi tiếng.'),
-  (8, 'Dangal', 8, 2016, 'poster8.jpg', 8, 19, 'trailer8.mp4', 'Phim Ấn Độ về nữ đô vật.'),
-  (9, 'The Lord of the Rings: The Return of the King', 9, 2003, 'poster9.jpg', 2, 20, 'trailer9.mp4', 'Phim sử thi giả tưởng Mỹ.'),
-  (10, 'Furie', 10, 2019, 'poster10.jpg', 1, 10, 'trailer10.mp4', 'Phim hành động Việt Nam với nữ chính mạnh mẽ.'),
-  (11, 'Train to Busan', 11, 2016, 'poster11.jpg', 3, 12, 'trailer11.mp4', 'Phim zombie Hàn Quốc gay cấn.'),
-  (12, 'The White Silk Dress', 12, 2006, 'poster12.jpg', 1, 11, 'trailer12.mp4', 'Phim Việt Nam kể về chiến tranh.'),
-  (13, 'Avengers: Endgame', 13, 2019, 'poster13.jpg', 2, 22, 'trailer13.mp4', 'Phim siêu anh hùng Mỹ nổi tiếng.'),
-  (14, 'Ikiru', 14, 1952, 'poster14.jpg', 4, 14, 'trailer14.mp4', 'Phim Nhật Bản của đạo diễn Kurosawa.'),
-  (15, 'La Haine', 15, 1995, 'poster15.jpg', 5, 13, 'trailer15.mp4', 'Phim Pháp về xã hội và bạo lực.'),
-  (16, 'Sherlock Holmes', 16, 2009, 'poster16.jpg', 6, 15, 'trailer16.mp4', 'Phim trinh thám Anh với Robert Downey Jr.'),
-  (17, 'Hero', 17, 2002, 'poster17.jpg', 7, 19, 'trailer17.mp4', 'Phim võ thuật Trung Quốc với Jet Li.'),
-  (18, '3 Idiots', 18, 2009, 'poster18.jpg', 8, 16, 'trailer18.mp4', 'Phim hài đời học sinh Ấn Độ.'),
-  (19, 'The Dark Knight', 19, 2008, 'poster19.jpg', 2, 21, 'trailer19.mp4', 'Phim siêu anh hùng Mỹ của Christopher Nolan.'),
-  (20, 'Inside the Yellow Cocoon Shell', 20, 2023, 'poster20.jpg', 1, 12, 'trailer20.mp4', 'Phim Việt Nam đề tài tâm linh.'),
-  (21, 'The Intouchables', 21, 2011, 'poster21.jpg', 5, 14, 'trailer21.mp4', 'Phim Pháp kể chuyện cảm động.'),
-  (22, 'The Rebel', 22, 2007, 'poster22.jpg', 1, 13, 'trailer22.mp4', 'Phim hành động Việt Nam.'),
-  (23, 'Bohemian Rhapsody', 23, 2018, 'poster23.jpg', 6, 14, 'trailer23.mp4', 'Phim tiểu sử âm nhạc Anh.'),
-  (24, 'Ip Man', 24, 2008, 'poster24.jpg', 7, 18, 'trailer24.mp4', 'Phim võ thuật Trung Quốc về võ sư Vịnh Xuân.'),
-  (25, 'Kantara: A Legend Chapter-1', 25, 2025, 'poster25.jpg', 8, 21, 'trailer25.mp4', 'Phim hành động Ấn Độ mới nổi.'),
-  (26, 'Don’t Burn', 26, 2009, 'poster26.jpg', 1, 11, 'trailer26.mp4', 'Phim chiến tranh Việt Nam.'),
-  (27, 'Once Upon a Time in Vu Dai Village', 27, 1982, 'poster27.jpg', 1, 10, 'trailer27.mp4', 'Phim Việt Nam cổ điển.'),
-  (28, 'My Neighbor Totoro', 28, 1988, 'poster28.jpg', 4, 12, 'trailer28.mp4', 'Phim hoạt hình Nhật Bản cổ điển.'),
-  (29, 'Lawrence of Arabia', 29, 1962, 'poster29.jpg', 6, 15, 'trailer29.mp4', 'Phim điện ảnh sử thi Anh.'),
-  (30, 'Avatar: The Way of Water', 30, 2022, 'poster30.jpg', 2, 22, 'trailer30.mp4', 'Phim giả tưởng Mỹ Hollywood.');
-
-INSERT INTO phim_dien_vien (id, phim_id, dien_vien_id) VALUES
-  (1, 1, 1),
-  (2, 2, 2),
-  (3, 3, 3),
-  (4, 4, 4),
-  (5, 5, 5),
-  (6, 6, 6),
-  (7, 7, 7),
-  (8, 8, 8),
-  (9, 9, 9),
-  (10, 10, 10),
-  (11, 11, 11),
-  (12, 12, 12),
-  (13, 13, 13),
-  (14, 14, 14),
-  (15, 15, 15),
-  (16, 16, 16),
-  (17, 17, 17),
-  (18, 18, 18),
-  (19, 19, 19),
-  (20, 20, 20),
-  (21, 21, 21),
-  (22, 22, 22),
-  (23, 23, 23),
-  (24, 24, 24),
-  (25, 25, 25),
-  (26, 26, 26),
-  (27, 27, 27),
-  (28, 28, 28),
-  (29, 29, 29),
-  (30, 30, 30);
-
-INSERT INTO phim_the_loai (id, phim_id, the_loai_id) VALUES
-  (1, 1, 1),
-  (2, 2, 2),
-  (3, 3, 3),
-  (4, 4, 4),
-  (5, 5, 5),
-  (6, 6, 6),
-  (7, 7, 7),
-  (8, 8, 8),
-  (9, 9, 9),
-  (10, 10, 10),
-  (11, 11, 1),
-  (12, 12, 2), 
-  (13, 13, 3), 
-  (14, 14, 4), 
-  (15, 15, 5),
-  (16, 16, 6), 
-  (17, 17, 7), 
-  (18, 18, 8), 
-  (19, 19, 9), 
-  (20, 20, 10),
-  (21, 21, 1), 
-  (22, 22, 2), 
-  (23, 23, 3), 
-  (24, 24, 4), 
-  (25, 25, 5),
-  (26, 26, 6), 
-  (27, 27, 7), 
-  (28, 28, 8), 
-  (29, 29, 9), 
-  (30, 30, 10);
-
-
-INSERT INTO tap_phim (id, so_tap, tieu_de, phim_id, thoi_luong, trailer) VALUES
-  (1, 1, 'Episode 1', 1, 45.0, 'tap1.mp4'),
-  (2, 2, 'Episode 2', 1, 44.5, 'tap2.mp4'),
-  (3, 3, 'Episode 3', 2, 46.0, 'tap3.mp4'),
-  (4, 4, 'Episode 4', 2, 47.0, 'tap4.mp4'),
-  (5, 5, 'Episode 5', 3, 45.5, 'tap5.mp4'),
-  (6, 6, 'Episode 6', 3, 44.0, 'tap6.mp4'),
-  (7, 7, 'Episode 7', 4, 46.5, 'tap7.mp4'),
-  (8, 8, 'Episode 8', 4, 47.3, 'tap8.mp4'),
-  (9, 9, 'Episode 9', 5, 45.7, 'tap9.mp4'),
-  (10, 10, 'Episode 10', 5, 44.8, 'tap10.mp4'),
-  (11, 11, 'Episode 11', 6, 46.1, 'tap11.mp4'),
-  (12, 12, 'Episode 12', 6, 47.2, 'tap12.mp4'),
-  (13, 13, 'Episode 13', 7, 45.6, 'tap13.mp4'),
-  (14, 14, 'Episode 14', 7, 44.7, 'tap14.mp4'),
-  (15, 15, 'Episode 15', 8, 46.3, 'tap15.mp4'),
-  (16, 16, 'Episode 16', 8, 47.1, 'tap16.mp4'),
-  (17, 17, 'Episode 17', 9, 45.9, 'tap17.mp4'),
-  (18, 18, 'Episode 18', 9, 44.6, 'tap18.mp4'),
-  (19, 19, 'Episode 19', 10, 46.4, 'tap19.mp4'),
-  (20, 20, 'Episode 20', 10, 47.0, 'tap20.mp4'),
-  (21, 21, 'Episode 21', 11, 45.8, 'tap21.mp4'),
-  (22, 22, 'Episode 22', 11, 44.9, 'tap22.mp4'),
-  (23, 23, 'Episode 23', 12, 46.2, 'tap23.mp4'),
-  (24, 24, 'Episode 24', 12, 47.4, 'tap24.mp4'),
-  (25, 25, 'Episode 25', 13, 45.3, 'tap25.mp4'),
-  (26, 26, 'Episode 26', 13, 44.4, 'tap26.mp4'),
-  (27, 27, 'Episode 27', 14, 46.6, 'tap27.mp4'),
-  (28, 28, 'Episode 28', 14, 47.5, 'tap28.mp4'),
-  (29, 29, 'Episode 29', 15, 45.1, 'tap29.mp4'),
-  (30, 30, 'Episode 30', 15, 44.3, 'tap30.mp4');
+SELECT p.ten_phim, qg.ten_quoc_gia, nd.ho_ten as dao_dien, dv.ho_ten as dien_vien 
+from phim p 
+join quoc_gia qg on p.quoc_gia_id = qg.id
+join nguoi_dung nd on p.dao_dien_id = nd.id 
+join phim_dien_vien pdv on p.id = pdv.phim_id 
+join nguoi_dung dv on pdv.dien_vien_id = dv.id 
+where p.id = 10;
