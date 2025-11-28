@@ -24,15 +24,29 @@
 
 
     <?php
+    include('connect.php');
     if (isset($_POST['username']) && isset($_POST['password'])) {
         $tenDangNhap = $_POST['username'];
         $matKhau = $_POST['password'];
+        
+        $sql = "select * from nguoi_dung where ten_dang_nhap = '$tenDangNhap' and mat_khau = '$matKhau'";
+        echo $sql;
+        $result = mysqli_query($conn, $sql);
 
-        if ($tenDangNhap == 'admin' && $matKhau == '123') {
+        if (mysqli_num_rows($result) > 0) {
+            session_start();
+            $_SESSION["username"] = $tenDangNhap;
+            header('location: index.php');
+        } else {
+            echo "<p class='warning'>Sai thong tin dang nhap </p>";
+        }
+        /* if ($tenDangNhap == 'admin' && $matKhau == '123') {
+            session_start();
+            $_SESSION_username = $tenDangNhap;
             header('location: homepage.php');
         } else {
         echo "<p class = 'warning'>Thong tin dang nhap sai ! Vui long nhap lai.</p>";
-        }
+        } */
     } 
 
     

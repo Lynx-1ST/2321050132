@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đăng nhập - 36Tech (Offline Test)</title>
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../css/login.css">
+  <link rel="stylesheet" href="../css/notification.css">
+  <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+
+<body>
+  <form id="login-form">
+    <h3>Đăng nhập vào 36Tech</h3>
+    <p>🧪 <b>TEST OFFLINE</b></p>
+
+    <label for="username">Tên đăng nhập</label>
+    <input type="text" placeholder="Email, SĐT hoặc tên đăng nhập" id="username" autocomplete="username">
+
+    <label for="password">Mật khẩu</label>
+    <input type="password" placeholder="Mật khẩu" id="password" autocomplete="current-password">
+
+    <button type="submit" class="login-button">Đăng nhập</button>
+
+    <p class="social-text">Đăng nhập bằng tài khoản mạng xã hội</p>
+    <div class="social-icons">
+      <button type="button" class="social-icon fb" title="Facebook">
+        <i class="fa-brands fa-facebook"></i>
+      </button>
+      <button type="button" class="social-icon tw" title="Twitter">
+        <i class="fa-brands fa-twitter"></i>
+      </button>
+      <button type="button" class="social-icon in" title="Instagram">
+        <i class="fa-brands fa-instagram"></i>
+      </button>
+    </div>
+  </form>
+
+  <!-- Demo Credentials Info -->
+  <div id="demo-info-notice" style="
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background: rgba(50, 184, 198, 0.1);
+    border: 1px solid rgba(50, 184, 198, 0.5);
+    border-radius: 8px;
+    padding: 16px;
+    max-width: 320px;
+    color: #ffffff;
+    font-size: 12px;
+    z-index: 1000;
+    font-family: 'Quicksand', sans-serif;
+  ">
+    <h4 style="margin: 0 0 8px 0; color: #50b8c6; font-size: 13px;">📝 Tài khoản Demo:</h4>
+    <table style="width: 100%; font-size: 11px; line-height: 1.6;">
+      <tr>
+        <td style="padding-right: 8px;"><strong>Email:</strong></td>
+        <td><code style="background: rgba(0,0,0,0.2); padding: 2px 4px;">admin@example.com</code></td>
+      </tr>
+      <tr>
+        <td><strong>Pass:</strong></td>
+        <td><code style="background: rgba(0,0,0,0.2); padding: 2px 4px;">123456</code></td>
+      </tr>
+      <tr>
+        <td colspan="2"
+          style="padding-top: 8px; border-top: 1px solid rgba(50, 184, 198, 0.3); margin-top: 8px; padding-top: 8px;">
+          Hoặc: <strong>user123</strong> / <strong>password</strong>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          Hoặc: <strong>0912345678</strong> / <strong>123456</strong>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- JavaScript Files -->
+  <script src="../js/login_offline.js"></script>
+</body>
+
+</html>

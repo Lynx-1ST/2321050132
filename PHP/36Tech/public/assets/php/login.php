@@ -1,78 +1,57 @@
 <?php
-header('Content-Type: application/json; charset=utf-8');
+require 'connect.php';
 session_start();
-
-if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-  http_response_code(405);
-  echo json_encode(['success' => false, 'message' => 'Method not allowed']);
-  exit;
-}
+header('Content-Type: application/json; charset=utf-8');
 
 $data = json_decode(file_get_contents('php://input'), true);
 $username = trim($data['username'] ?? "");
 $password = trim($data['password'] ?? "");
 
-// Validate input
+// Validate
 if (!$username || !$password) {
-  echo json_encode(['success' => false, 'message' => 'Vui lòng điền đầy đủ thông tin!']);
+  echo json_encode(['success' => false, 'message' => 'Vui lòng nhập đầy đủ!']);
   exit;
 }
 
-// Đọc users từ file
-$usersFile = __DIR__ . '/users.json';
-if (!file_exists($usersFile)) {
-  echo json_encode(['success' => false, 'message' => 'Hệ thống chưa sẵn sàng!']);
+// tìm user
+$find = $conn->prepare("SELECT id, fullname, email, password FROM users WHERE username = ? LIMIT 1");
+$find->bind_param("s", $username);
+$find->execute();
+$result = $find->get_result();
+
+if ($result->num_rows === 0) {
+  echo json_encode(['success' => false, 'message' => 'Tên đăng nhập hoặc mật khẩu không đúng!']);
   exit;
 }
 
-$users = json_decode(file_get_contents($usersFile), true) ?: [];
+$user = $result->fetch_assoc();
 
-// Tìm user
-$user = null;
-foreach ($users as $u) {
-  if ($u['username'] === $username) {
-    $user = $u;
-    break;
-  }
-}
-
-if (!$user) {
-  echo json_encode(['success' => false, 'message' => 'Tên đăng nhập hoặc mật khẩu không chính xác!']);
-  exit;
-}
-
-// Kiểm tra password
+// kiểm tra pass
 if (!password_verify($password, $user['password'])) {
-  echo json_encode(['success' => false, 'message' => 'Tên đăng nhập hoặc mật khẩu không chính xác!']);
+  echo json_encode(['success' => false, 'message' => 'Tên đăng nhập hoặc mật khẩu không đúng!']);
   exit;
 }
 
-// ============================================
-// LOGIN SUCCESS - Tạo TOKEN & LƯU SESSION
-// ============================================
-$token = bin2hex(random_bytes(16));
-$tokenExpiry = time() + (7 * 24 * 60 * 60);
-
-// Lưu SESSION
-$_SESSION['user_id'] = md5($user['username']);
-$_SESSION['username'] = $user['username'];
+// lưu thông tin khi đăng nhập thành công 
+$_SESSION['user_id'] = $user['id'];
+$_SESSION['username'] = $username;
 $_SESSION['fullname'] = $user['fullname'];
 $_SESSION['email'] = $user['email'];
-$_SESSION['auth_token'] = $token;
-$_SESSION['token_expiry'] = $tokenExpiry;
 $_SESSION['login_time'] = date('d/m/Y H:i:s');
 
-// Lưu COOKIE
-setcookie('auth_token', $token, $tokenExpiry, '/', '', false, true);
-setcookie('user_id', md5($user['username']), $tokenExpiry, '/', '', false, false);
-setcookie('username', $user['username'], $tokenExpiry, '/', '', false, false);
+// Cookie bánh quy
+$token = bin2hex(random_bytes(16));
+setcookie('auth_token', $token, time() + 7*24*60*60, '/', '', false, true);
+setcookie('username', $username, time() + 7*24*60*60, '/', '', false, false);
 
 echo json_encode([
   'success' => true,
   'message' => 'Đăng nhập thành công!',
-  'token' => $token,
   'fullname' => $user['fullname'],
   'email' => $user['email'],
-  'username' => $user['username']
+  'username' => $username
 ]);
+
+$find->close();
+$conn->close();
 ?>
