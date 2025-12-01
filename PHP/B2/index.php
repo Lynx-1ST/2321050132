@@ -35,7 +35,6 @@
     if(!isset($_SESSION['username'])) {
         header('location: login.php');
     }
-
 ?>
     <header>
         <nav>
@@ -89,6 +88,14 @@
                 case 'theloai':
                     include "theloai.php";
                     break;
+
+                case 'themnguoidung':
+                    include "themnguoidung.php";
+                    break;
+                
+                case 'capnhatnguoidung':
+                include "capnhatnguoidung.php";
+                break;
             }
         }
         ?>
