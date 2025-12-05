@@ -21,11 +21,12 @@
         margin: 0;
     }
     li{
-        padding: 10px;
+        padding: 15px;
     }
     a{
         text-decoration: none;
     }
+    
     </style>
 </head>
 
@@ -53,6 +54,9 @@
                 </li>
                 <li class="">
                     <a class="" href="index.php?page_layout=nguoidung">Người dùng</a>
+                </li>
+                <li class="">
+                    <a class="" href="index.php?page_layout=phimtheloai">Phim thể loại</a>
                 </li>
             </ul>
             <ul>
@@ -89,12 +93,44 @@
                     include "theloai.php";
                     break;
 
-                case 'themnguoidung':
-                    include "themnguoidung.php";
+                case 'phimtheloai':
+                    include "phimtheloai.php";
                     break;
-                
+
+                case 'themnguoidung':
+                include "./add/themnguoidung.php";
+                break;
+                    
                 case 'capnhatnguoidung':
-                include "capnhatnguoidung.php";
+                include "./update/capnhatnguoidung.php";
+                break;
+                
+                case 'themphim':
+                include "./add/themphim.php";
+                break;
+
+                case 'themquocgia':
+                include "./add/themquocgia.php";
+                break;
+
+                case 'suaquocgia':
+                include "./update/suaquocgia.php";
+                break;
+                
+                case 'suaphim':
+                include "./update/suaphim.php";
+                break;
+
+                case 'suatheloai':
+                include "./update/suatheloai.php";
+                break;
+
+                case 'themtheloai':
+                include "./add/themtheloai.php";
+                break;
+
+                case 'themphimtheloai':
+                include "./add/themphimtheloai.php";
                 break;
             }
         }

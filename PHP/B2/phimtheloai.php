@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quốc gia</title>
+    <title>Thể loại phim</title>
     <style>
         table {
             width: 95%;
@@ -53,31 +53,34 @@
 </head>
 <body>
     <div style="display: flex; justify-content: space-between; align-items: center; ">
-    <h1>Danh sách quốc gia</h1>
+    <h1>Thể loại phim</h1>
     <div>
-        <a class="btn them" href="index.php?page_layout=themquocgia">Thêm quốc gia</a>
+        <a class="btn them" href="index.php?page_layout=themphimtheloai">Thêm thể loại</a>
     </div>
     </div>
     <table border="1" cellspacing="0" cellpadding="5">
         <tr>
             <th>ID</th>
-            <th>Tên quốc gia</th>
+            <th>Phim</th>
+            <th>Tên thể loại</th>
             <th>Hành động</th>
         </tr>
 
         <?php 
-        require ("connect.php");
-        $sql = "SELECT * FROM quoc_gia";
-
+        include("connect.php");
+        $sql = "SELECT ptl.*, tl.ten_the_loai, p.ten_phim FROM phim_the_loai ptl 
+            JOIN the_loai tl ON tl.id = ptl.the_loai_id 
+            JOIN phim p ON p.id = ptl.phim_id";
         $result = mysqli_query($conn, $sql);
         while ($row = mysqli_fetch_array($result)) {
         ?>
         <tr>
             <td><?= $row["id"] ?></td>
-            <td><?= $row["ten_quoc_gia"] ?></td>
+            <td><?= $row["ten_phim"] ?></td>
+            <td><?= $row["ten_the_loai"] ?></td>
             <td class="byt">
-                <button class="update"><a href="index.php?page_layout=suaquocgia&id=<?= $row['id'] ?>">Cập nhật</a></button>
-                <button><a class="xoa" href="delete/xoaquocgia.php?id=<?= $row['id'] ?>">Xoá</a></button>
+                <button class="update"><a href="index.php?page_layout=suatheloai&id=<?= $row['id'] ?>">Cập nhật</a></button>
+                <button><a class="xoa" href="delete/xoatheloai.php?id=<?= $row['id'] ?>">Xoá</a></button>
             </td>
         </tr>
         <?php } ?>

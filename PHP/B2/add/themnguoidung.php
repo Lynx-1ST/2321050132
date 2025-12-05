@@ -40,20 +40,24 @@
         <div>
             <select name="vai-tro">
                 <option value="1">Admin</option>
-                <option value="2">User</option>
-                <option value="3">Guest</option>
+                <option value="2">Đạo Diễn</option>
+                <option value="3">Diễn Viên</option>
+                <option value="4">User</option>
             </select>
         </div>
         <div>
             <button type="submit">Thêm mới</button>
         </div>
     </form>
-    <?php 
-    require 'connect.php';
+<?php
+require 'connect.php';
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!empty($_POST['username']) && !empty($_POST['password']) 
         && !empty($_POST['hoten']) && !empty($_POST['email']) 
-    && !empty($_POST['sdt']) && !empty($_POST['ngay-sinh']) && !empty($_POST['vai-tro']) ) {
+        && !empty($_POST['sdt']) && !empty($_POST['ngay-sinh']) 
+        && !empty($_POST['vai-tro'])) {
+
         $tenDangNhap = $_POST['username'];
         $pw = $_POST['password'];
         $hoTen = $_POST['hoten'];
@@ -62,20 +66,25 @@
         $ngaySinh = $_POST['ngay-sinh'];
         $vaiTro = $_POST['vai-tro'];
 
-    $sql = "INSERT INTO nguoi_dung
-                (ten_dang_nhap, mat_khau, ho_ten, email, sdt, ngay_sinh, vai_tro_id)
-            VALUES
-                ('$tenDangNhap', '$pw', '$hoTen', '$email', '$sdt', '$ngaySinh', $vaiTro)";
+        $sql = "INSERT INTO nguoi_dung (ten_dang_nhap, mat_khau, ho_ten, email, sdt, ngay_sinh, vai_tro_id)
+                VALUES ('$tenDangNhap', '$pw', '$hoTen', '$email', '$sdt', '$ngaySinh', $vaiTro)";
+
+        // DEBUG: In câu SQL để kiểm tra
+        echo "<p style='color:blue;'>SQL: $sql</p>";
 
         if (mysqli_query($conn, $sql)) {
+            echo "<p style='color:green;'>Thêm thành công!</p>";
             header('Location: index.php?page_layout=nguoidung');
             exit;
         } else {
-            echo '<p class= "warning">Lỗi SQL:  </p>' . mysqli_error($conn);
+            echo '<p style="color:red;">Lỗi SQL: ' . mysqli_error($conn) . '</p>';
         }
     } else {
-        echo "<p class= 'warning'> Vui lòng nhập đầy đủ thông tin ! </p>";
+        echo "<p style='color:red;'>Vui lòng nhập đầy đủ thông tin!</p>";
     }
-    ?>
+}
+?>
+
+
 </body>
 </html>

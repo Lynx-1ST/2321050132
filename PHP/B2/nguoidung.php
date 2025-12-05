@@ -5,12 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
     <style>
-        table {
+        body {
+            margin: 0;
+        }
+        body {
+            margin: auto;
             width: 100%;
         }
-        main {
+        table {
+            width: 95%;
             margin: auto;
-
+        }
+        table {
+            width: 95%;
+            margin: auto;
         }
         td {
             padding: 10px;
@@ -22,6 +30,37 @@
             padding: 10px;
             border: 1px solid black;
             border-radius: 10px;
+        }
+        h1 {
+            padding: 15px;
+            margin: 10px;
+        }
+        .them {
+            margin-right: 50px;
+            background-color: aqua;
+            border: none;
+            color: red;
+        }
+
+        .them:hover {
+            background-color: greenyellow;
+            cursor: pointer;
+        }
+        .byt {
+            display: flex;
+            justify-content: space-around;
+        }
+        button {
+            padding: 6px 10px;
+            border-radius: 10px;
+            border: none;
+            color: red;
+            background-color: aquamarine;
+        }
+
+                .update {
+            color: black;
+            background-color: #ff5f9cff;
         }
 
     </style>
@@ -49,8 +88,7 @@
         $sql = 'SELECT nd.*, vt.ten_vai_tro FROM `nguoi_dung` nd 
                 JOIN vai_tro vt on nd.vai_tro_id = vt.id';
         $result = mysqli_query($conn, $sql);
-
-        while ($row = mysqli_fetch_array($result)) {
+        while ($row = mysqli_fetch_assoc($result)) {
         ?>
 
         <tr>
@@ -60,9 +98,9 @@
             <td><?= $row["sdt"] ?></td>
             <td><?= $row["ten_vai_tro"] ?></td>
             <td><?= $row["ngay_sinh"] ?></td>
-            <td class="function">
-                <a class="cap-nhat" href="index.php?page_layout=capnhatnguoidung&id=<?php echo $row['id'] ?>">Cập nhật</a>
-                <a class="xoa" href="xoanguoidung.php?id=<?php echo $row['id'] ?>">Xoá</a>
+            <td class="byt">
+                <button class="update"><a href="index.php?page_layout=capnhatnguoidung&id=<?php echo $row['id'] ?>">Cập nhật</a></button>
+                <button><a class="xoa" href="delete/xoanguoidung.php?id=<?php echo $row['id'] ?>">Xoá</a></button>
             </td>
         </tr>
 

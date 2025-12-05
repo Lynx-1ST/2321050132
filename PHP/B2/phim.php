@@ -1,3 +1,12 @@
+<?php
+require ("connect.php");
+
+$sql = "SELECT p.*, nd.ho_ten, qg.ten_quoc_gia FROM phim p
+JOIN nguoi_dung nd ON nd.id = p.dao_dien_id
+JOIN quoc_gia qg ON qg.id = p.quoc_gia_id;
+";
+$result = mysqli_query($conn, $sql);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,69 +15,101 @@
     <title>Thông tin phim</title>
     <style>
         table {
-            width: 100%;
+            width: 95%;
+            margin: auto;
+        }
+        .btn {
+            padding: 10px;
+            border: 1px solid black;
+            border-radius: 10px;
+        }
+        .btn {
+            padding: 10px;
+            border: 1px solid black;
+            border-radius: 10px;
+        }
+        h1 {
+            padding: 15px;
+            margin: 10px;
+        }
+        .them {
+            margin-right: 50px;
+            background-color: aqua;
+            border: none;
+            color: red;
+        }
+
+        .them:hover {
+            background-color: greenyellow;
+            cursor: pointer;
+        }
+        .byt {
+            display: flex;
+            justify-content: space-around;
+        }
+        button {
+            padding: 6px 10px;
+            border-radius: 10px;
+            border: none;
+            color: red;
+            background-color: aquamarine;
+        }
+        .update {
+            color: black;
+            background-color: #ff5f9cff;
+        }
+
+        a {
+            text-decoration: none;
         }
     </style>
 </head>
+
 <body>
 
+<div style="display: flex; justify-content: space-between; align-items: center; ">
     <h1>Thông tin phim</h1>
-    <table border="1" cellspacing="0" cellpadding="5">
-        <tr>
-            <th>Tên phim</th>
-            <th>Năm phát hành</th>
-            <th>Đạo diễn</th>
-            <th>Diễn viên</th>
-            <th>Số tập</th>
-            <th>Hành động</th>
-        </tr>
+    <div>
+        <a class="btn them" href="index.php?page_layout=themphim">Thêm phim</a>
+    </div>
+</div>
 
-        <?php 
-        // 28->30 la ket noi voi SQL va lay danh sach phimmmmm
-        include("connect.php");
-        $sql = "SELECT * FROM phim";
-        $result = mysqli_query($conn, $sql);
-        // duyệt từng dòng trong cái select trên
-        while ($phim = mysqli_fetch_array($result)) { //fetch_array - lay du lieu tu kq SQL roi tra ve duoi dang array
-            $phim_id = $phim["id"];
-            // dao_dien_id là khoá ngoại -> lấy 
-            $sql = "SELECT ho_ten FROM nguoi_dung WHERE id = ".$phim['dao_dien_id']; // tạo 1 biến sql để lưu trữ query ( kh tạo cũng đc :> )
-            $ketQua = mysqli_query($conn, $sql );
-            // lấy cột ho_ten ròi lưu vào biến daoDien để tí in ra 
-            $daoDien = mysqli_fetch_array($ketQua)['ho_ten'];
+<table border="1" cellspacing="0" cellpadding="5">
+    <tr>
+        <th>ID</th>
+        <th>Tên phim</th>
+        <th>Đạo diễn</th>
+        <th>Năm phát hành</th>
+        <th>Poster</th>
+        <th>Quốc gia</th>
+        <th>Số tập</th>
+        <th>Trailer</th>
+        <th>Mô tả</th>
+        <th>Hành động</th>
+    </tr>
 
-            // dien vien
-            $tenDienVien = "";
-            $sql = "SELECT dv.ten_dien_vien FROM phim_dien_vien pdv 
-                    JOIN dien_vien dv ON dv.id = pdv.dien_vien_id
-                    WHERE pdv.phim_id = $phim_id";
-            $ketQua = mysqli_query($conn, $sql);
-            while ($row = mysqli_fetch_array($ketQua)) {
-                $tenDienVien .= $row['ten_dien_vien'] . ", "; // nối 2 chuỗi với nhau, cách nhau bằng dấu ,
-            }
-            $tenDienVien = rtrim($tenDienVien, ", ");
-
-            // so tap
-            $sql = "SELECT COUNT(*) AS tong_tap FROM tap_phim WHERE phim_id = $phim_id";
-            $ketQua = mysqli_query($conn, $sql);
-            $so_tap = mysqli_fetch_array($ketQua)['tong_tap'];
+    <?php 
+    while ($phim = mysqli_fetch_assoc($result)) 
+    { 
         ?>
+    <tr>
+        <td><?= $phim["id"] ?></td>
+        <td><?= $phim["ten_phim"] ?></td>
+        <td><?= $phim["ho_ten"] ?></td>
+        <td><?= $phim["nam_phat_hanh"] ?></td>
+        <td><?= $phim["poster"] ?></td>
+        <td><?= $phim["ten_quoc_gia"] ?></td>
+        <td><?= $phim["so_tap"] ?></td>
+        <td><?= $phim["trailer"] ?></td>
+        <td><?= $phim["mo_ta"] ?></td>
+        <td class="byt">
+            <button class="update"><a href="index.php?page_layout=suaphim&id=<?= $phim['id'] ?>">Cập nhật</a></button>
+            <button><a href="./delete/xoaphim.php?id=<?= $phim['id'] ?>">Xoá</a></button>
+        </td>
+    </tr>
+    <?php } ?>
 
-        <tr>
-            <td><?= $phim["ten_phim"] ?></td>
-            <td><?= $phim["nam_phat_hanh"] ?></td>
-            <td><?= $daoDien ?></td>
-            <td><?= $tenDienVien ?></td>
-            <td><?= $so_tap ?></td>
-            <td>
-                <button>Sửa</button>
-                <a class="xoa" href="xoaphim.php?id=<?= $phim['id'] ?>">Xoá</a>
-            </td>
-        </tr>
-
-        <?php } ?>
-
-    </table>
+</table>
 
 </body>
 </html>

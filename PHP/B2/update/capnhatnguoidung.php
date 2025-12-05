@@ -48,8 +48,9 @@
         <div>
             <select name="vai-tro">
                 <option value="1" <?php echo $nguoiDung['vai_tro_id'] == 1 ? 'selected' : "" ?> >Admin</option>
-                <option value="2" <?php echo $nguoiDung['vai_tro_id'] == 2 ? 'selected' : "" ?> >User</option>
-                <option value="3" <?php echo $nguoiDung['vai_tro_id'] == 3 ? 'selected' : "" ?> >Guest</option>
+                <option value="2" <?php echo $nguoiDung['vai_tro_id'] == 2 ? 'selected' : "" ?> >Đạo diễn</option>
+                <option value="3" <?php echo $nguoiDung['vai_tro_id'] == 3 ? 'selected' : "" ?> >Diễn viên</option>
+                <option value="4" <?php echo $nguoiDung['vai_tro_id'] == 4 ? 'selected' : "" ?> >Guest</option>
             </select>
         </div>
         <div>
@@ -58,6 +59,7 @@
     </form>
 
     <?php 
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!empty($_POST['username']) && !empty($_POST['password']) 
         && !empty($_POST['hoten']) && !empty($_POST['email']) 
         && !empty($_POST['sdt']) && !empty($_POST['ngay-sinh']) && !empty($_POST['vai-tro']) ) {
@@ -88,6 +90,7 @@
     } else {
         echo "<p class='warning'> Vui lòng nhập đầy đủ thông tin ! </p>";
     }
+}
     ?>
 </body>
 </html>
